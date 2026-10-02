@@ -10,21 +10,21 @@
 </head>
 <body>
 
-    <!-- Navbar (idéntica en las dos páginas) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <span class="navbar-brand">Fernando José García Fernández</span>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark py-3" style="background-color: #e83e8c;">
+    <div class="container">
+        <span class="navbar-brand">Fernando José García Fernández</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
             <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Navegadores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="interaccion.html">Interacción</a></li>
-                </ul>
-            </div>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Navegadores</a></li>
+                <li class="nav-item"><a class="nav-link" href="interaccion.html">Interacción</a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <main class="container my-4">
 
@@ -57,11 +57,51 @@
 
         <div class="row">
             <div class="col-12 col-md-8">
+                <p>Casi todos los navegadores comparten motor porque Chromium es un proyecto de
+                    código abierto y mantener un motor propio es carísimo. Por eso Microsoft dejó el
+                    suyo y Edge pasó a usar Blink, y lo mismo hicieron Opera y otros. Solo quedan
+                    fuera Firefox, que usa Gecko, y Safari, que usa WebKit. Para quien desarrolla,
+                    esto tiene una parte buena, porque lo que funciona en Chrome casi siempre
+                    funciona en Edge u Opera. Pero también tiene un riesgo: si solo pruebas en
+                    Chrome, puedes pasar por alto fallos en Firefox o en Safari, que es obligatorio
+                    en iPhone. Además, si todo el mundo usa el mismo motor, una sola empresa acaba
+                    decidiendo cómo evoluciona la web.</p>
+            </div>
+        </div>
+
+        <!-- Ejemplo de compatibilidad en una card -->
+        <div class="row my-4">
+            <div class="col-12 col-md-2">
+                <div class="card">
+                    <div class="card-header">Ejemplo de compatibilidad (caniuse.com)</div>
+                    <div class="card-body">
+                    <h5 class="card-title">CSS: field-sizing</h5>
+                    <p class="card-text">Propiedad CSS que hace que un campo de formulario (textarea, input) se
+                            ajuste solo al tamaño de lo que escribe el usuario. Funciona en Chrome y
+                            Edge desde la versión 123, pero Firefox no la soportó hasta la 152 y
+                            Safari hasta la 26.2, así que en versiones anteriores de esos dos
+                            navegadores no hace nada.</p>
+                    <p class="card-text"><small>Fecha de consulta: 02/10/2026</small></p>
+                    <a href="[ENLACE A caniuse.com/...]" class="card-link" target="_blank">Ver en caniuse</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <h2 class="h5">Reflexión</h2>
+                 <p>
+                    Si un cliente me encarga una web, la probaría primero en Chrome, porque es el más
+                    usado y además cubre Edge y Opera. Después en Safari, sobre todo en iPhone, ya que
+                    tiene un motor distinto y muchos usuarios móviles lo usan. Por último en Firefox,
+                    para comprobar que Gecko la muestra igual. Como hoy se navega sobre todo desde el
+                    móvil, la probaría con el modo dispositivo de F12 y, si puedo, en un móvil real.
+                </p>
                 <p></p>
             </div>
         </div>
 
-  
     </main>
 
     <!-- JS de Bootstrap. Al final del body -->
