@@ -11,7 +11,7 @@
 <body>
 
     <!-- Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-red bg-primary">
         <div class="container">
             <span class="navbar-brand">Fernando José García Fernández</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -28,24 +28,28 @@
 
       <main class="container my-4">
         <div class="row">
-            <div class="col-12 col-md-6 mb-3">
-                <div class="card">
+            <div class="col-12 col-md-6 mb-3">      
+                
                     <div class="card-header">Botones</div>
                     
                         <button type="button" class="btn btn-primary" onclick="saludar()">Saludar</button>
+
                         <button type="button" class="btn btn-danger" onclick="simularError()">Simular un error</button>
+
                         <button type="button" class="btn btn-secondary" onclick="queNavegador()">¿Qué navegador soy?</button>
                     
                 </div>
             </div>
-
-            <div class="col-12 col-md-6 mb-3">
+            
                 <ul class="list-group">
+
                     <li class="list-group-item"><strong>Saludar:</strong> muestra un alert con mi nombre.</li>
+
                     <li class="list-group-item"><strong>Simular un error:</strong> escribe un error en la consola, el usuario no ve nada.</li>
+
                     <li class="list-group-item"><strong>¿Qué navegador soy?:</strong> muestra el userAgent en un alert y en la consola.</li>
                 </ul>
-            </div>
+            
         </div>
     </main>
 
