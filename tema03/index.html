@@ -49,25 +49,25 @@
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio1() {
     console.log("Ejercicio 1: Variables y typeof");
     // number
-    const edad = 21;   // espero que sea number
+    const edad = 21;// espero que sea number
     console.log("edad =", edad, "→", typeof edad);
     // string
-    const nombre = "Fernando";   // espero que sea string
+    const nombre = "Fernando";// espero que sea string
     console.log("nombre =", nombre, "→", typeof nombre);
     // boolean
-    const estudiaDaw = true;   // espero que sea boolean
+    const estudiaDaw = true;// espero que sea boolean
     console.log("estudiaDaw =", estudiaDaw, "→", typeof estudiaDaw);
     // null
-    const segundoTitulo = null;   // espero que sea object (es un error histórico de JavaScript)
+    const segundoTitulo = null;// espero que sea object (es un error histórico de JavaScript)
     console.log("segundoTitulo =", segundoTitulo, "→", typeof segundoTitulo);
     // bigint (entero terminado en n)
-    const numeroGrande = 10n;   // espero que sea bigint
+    const numeroGrande = 10n;// espero que sea bigint
     console.log("numeroGrande =", numeroGrande, "→", typeof numeroGrande);
     // undefined: let sin valor al declararla
     let horasEstudiadas;   // espero que sea undefined
     console.log("horasEstudiadas =", horasEstudiadas, "→", typeof horasEstudiadas);
     // Ahora le doy valor a la let y vuelvo a mostrar su typeof
-    horasEstudiadas = 6;   // espero que sea number
+    horasEstudiadas = 6;// espero que sea number
     console.log("horasEstudiadas =", horasEstudiadas, "→", typeof horasEstudiadas);
 }</code></pre>
 
@@ -110,30 +110,30 @@
       <div class="card-body">
 
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio2() {
-    console.log("--- Ejercicio 2 · Conversiones explícitas ---");
+    console.log("Ejercicio 2: Conversiones explícitas");
 
-    const textoDe123 = String(123);   // espero:
+    const textoDe123 = String(123);//espero: 123 (string)
     console.log("String(123) →", textoDe123, typeof textoDe123);
 
-    const numeroDe123 = Number("123");   // espero:
+    const numeroDe123 = Number("123");//espero: 123 (number)
     console.log('Number("123") →', numeroDe123, typeof numeroDe123);
 
-    const numeroDe12abc = Number("12abc");   // espero:
+    const numeroDe12abc = Number("12abc");//espero: Nam(number)
     console.log('Number("12abc") →', numeroDe12abc, typeof numeroDe12abc);
 
-    const numeroDeVacio = Number("");   // espero:
+    const numeroDeVacio = Number("");//espero: 0 (number)
     console.log('Number("") →', numeroDeVacio, typeof numeroDeVacio);
 
-    const numeroDeTrue = Number(true);   // espero:
+    const numeroDeTrue = Number(true);//espero: 1 (number)
     console.log("Number(true) →", numeroDeTrue, typeof numeroDeTrue);
 
-    const booleanoDeCero = Boolean(0);   // espero:
+    const booleanoDeCero = Boolean(0);//espero: falso (boolean)
     console.log("Boolean(0) →", booleanoDeCero, typeof booleanoDeCero);
 
-    const booleanoDeTexto = Boolean("texto");   // espero:
+    const booleanoDeTexto = Boolean("texto");//espero:  true (boolean)
     console.log('Boolean("texto") →', booleanoDeTexto, typeof booleanoDeTexto);
 
-    const booleanoDeVacio = Boolean("");   // espero:
+    const booleanoDeVacio = Boolean("");//espero: falso (boolean)
     console.log('Boolean("") →', booleanoDeVacio, typeof booleanoDeVacio);
 }</code></pre>
 
@@ -175,25 +175,23 @@
       <div class="card-body">
 
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio3() {
-    console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
+    console.log("Ejercicio 3: Coerción y comparaciones");
 
     // Seis expresiones que mezclan tipos
-    console.log('"5" - 2 →', "5" - 2);   // espero:
-    console.log('"5" + 2 →', "5" + 2);   // espero:
-    console.log('"10" * "2" →', "10" * "2");   // espero:
-    console.log("true + 1 →", true + 1);   // espero:
-    console.log('"3" + 4 + 5 →', "3" + 4 + 5);   // espero:
-    console.log('"hola" - 1 →', "hola" - 1);   // espero:
+    console.log('"5" - 2 →', "5" - 2);//espero: 3
+    console.log('"5" + 2 →', "5" + 2);//espero: "52"
+    console.log('"10" * "2" →', "10" * "2");//espero: 20
+    console.log("true + 1 →", true + 1);//espero: 2
+    console.log('"3" + 4 + 5 →', "3" + 4 + 5);//espero: "345"
+    console.log('"hola" - 1 →', "hola" - 1);   // espero: NaN
 
     // Tres parejas comparadas con == y con ===
-    console.log('5 == "5" →', 5 == "5");   // espero:
-    console.log('5 === "5" →', 5 === "5");   // espero:
-
-    console.log("0 == false →", 0 == false);   // espero:
-    console.log("0 === false →", 0 === false);   // espero:
-
-    console.log("null == undefined →", null == undefined);   // espero:
-    console.log("null === undefined →", null === undefined);   // espero:
+    console.log('5 == "5" →', 5 == "5");//espero: true
+    console.log('5 === "5" →', 5 === "5");//espero: false
+    console.log("0 == false →", 0 == false);//espero: true
+    console.log("0 === false →", 0 === false);//espero: false
+    console.log("null == undefined →", null == undefined);//espero: true
+    console.log("null === undefined →", null === undefined);//espero: false
 }</code></pre>
 
         <div class="table-responsive">
@@ -240,7 +238,7 @@
       <div class="card-body">
 
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio4() {
-    console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
+    console.log("Ejercicio 4: Tu ficha con plantillas de cadena");
 
     // Mis datos, con const
     const nombre = "Fernando";

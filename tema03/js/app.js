@@ -72,7 +72,7 @@ function ejercicio2() {
 
 //Ejercicio 3: Coerción y comparaciones
 function ejercicio3() {
-    console.log("Ejercicio 3: Coerción y comparaciones ---");
+    console.log("Ejercicio 3: Coerción y comparaciones");
     // Seis expresiones que mezclan tipos
     console.log('"5" - 2 →', "5" - 2);// espero: 3
     console.log('"5" + 2 →', "5" + 2); //espero:"52"
