@@ -1,5 +1,5 @@
 /*
-  Tarea 3 · DWEC · [Tu nombre y apellidos]
+  Tarea 3 · DWEC · Fernando José García Fernández
   Variables, tipos y conversiones.
 
   Cómo usar esta plantilla:
@@ -12,18 +12,30 @@
 console.log("app.js cargado: pulsa «Ejecutar» en cada ejercicio");
 
 
-// Ejercicio 1 · Variables y typeof
+// Ejercicio 1: Variables y typeof
 function ejercicio1() {
-  console.log("--- Ejercicio 1 · Variables y typeof ---");
-
-  // Ejemplo: una variable y su typeof en la consola
-  const edad = 20;   // number
-  console.log("edad =", edad, "→", typeof edad);
-
-  // TODO: declara una variable de cada tipo que falta: string, boolean, null, undefined y bigint (como 10n).
-  //       const si no va a cambiar; let para al menos una a la que des valor más tarde.
-  // TODO: muestra en la consola el valor y el typeof de cada una, como en el ejemplo.
-  // TODO: da valor a tu variable let y vuelve a mostrar su typeof.
+    console.log("Ejercicio 1: Variables y typeof");
+    // number
+    const edad = 21;   // espero que sea number
+    console.log("edad =", edad, "→", typeof edad);
+    // string
+    const nombre = "Fernando";   // espero que sea string
+    console.log("nombre =", nombre, "→", typeof nombre);
+    // boolean
+    const estudiaDaw = true;   // espero que sea boolean
+    console.log("estudiaDaw =", estudiaDaw, "→", typeof estudiaDaw);
+    // null
+    const segundoTitulo = null;   // espero que sea object (es un error histórico de JavaScript)
+    console.log("segundoTitulo =", segundoTitulo, "→", typeof segundoTitulo);
+    // bigint (entero terminado en n)
+    const numeroGrande = 10n;   // espero que sea bigint
+    console.log("numeroGrande =", numeroGrande, "→", typeof numeroGrande);
+    // undefined: let sin valor al declararla
+    let horasEstudiadas;   // espero que sea undefined
+    console.log("horasEstudiadas =", horasEstudiadas, "→", typeof horasEstudiadas);
+    // Ahora le doy valor a la let y vuelvo a mostrar su typeof
+    horasEstudiadas = 6;   // espero que sea number
+    console.log("horasEstudiadas =", horasEstudiadas, "→", typeof horasEstudiadas);
 }
 
 
