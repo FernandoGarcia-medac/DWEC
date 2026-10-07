@@ -48,7 +48,13 @@ Enlace: https://github.com/FernandoGarcia-medac/DWEC/blob/main/tema03/capturas/e
 
 ## Reflexión
 
-ESCRIBE AQUÍ TU REFLEXIÓN (de 5 a 8 líneas)
+-Las conversiones más intuitivas fueron las de Boolean: Boolean(0) y Boolean("") dan false, y Boolean("texto") da true.
+-También me pareció lógico que Number("123") dé 123 y que String(123) dé "123".
+-Me sorprendió que Number("") dé 0 y que Number("12abc") dé NaN aunque empiece por números.
+-El ejercicio 3 fue el más complicado: "5" + 2 da "52", pero "5" - 2 da 3.
+Con el + manda la cadena y con el - manda el número, y por eso "3" + 4 + 5 da "345".
+-He entendido por qué conviene usar ===: 0 == false da true, pero 0 === false da false.
+Así evito comparaciones que me engañen.
 
 ## Fuentes
 
