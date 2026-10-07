@@ -1,16 +1,8 @@
 # Tarea 3 · Variables, tipos y conversiones
 
-**Autor:** [Tu nombre y apellidos] · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
+**Autor:** Fernando José García Fernández · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
 
-> **Plantilla de la tarea 3.** Cómo usarla:
->
-> 1. Copia esta carpeta en tu repositorio de DWEC y cámbiale el nombre a `tema03`.
-> 2. `index.html` trae la card del ejercicio 1 como modelo: cópiala para los ejercicios 2, 3 y 4.
-> 3. `js/app.js` trae una función por ejercicio: escribe tu código donde pone `TODO`.
-> 4. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
-> 5. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
-
-[Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live**, abrir la consola con F12 y pulsar «Ejecutar» en cada ejercicio.]
+Esta carpeta contiene una página con cuatro ejercicios de JavaScript: variables y `typeof`, conversiones explícitas, coerción y comparaciones, y una ficha con plantillas de cadena. Para probarla, abro la carpeta en VS Code, pulso **Go Live**, abro la consola con F12 y pulso «Ejecutar» en cada ejercicio.
 
 ## Capturas
 
@@ -18,40 +10,51 @@
 
 <img src="capturas/a-pagina.png" alt="La página entera con mi nombre en la navbar" width="600">
 
-[Qué se ve: tu nombre en la navbar, las cuatro cards y los fallos de predicción marcados.]
+Se ve mi nombre en la navbar, las cuatro cards con su código y sus tablas «Espero / Sale», y el pie de página.
+
+Enlace: https://github.com/FernandoGarcia-medac/DWEC/blob/main/tema03/capturas/a-pagina.png
 
 ### b) Consola del ejercicio 1
 
 ![Consola del ejercicio 1](capturas/b-consola-ej1.png)
 
-[Qué se ve, en una o dos líneas.]
+La consola muestra el valor y el `typeof` de cada variable. `segundoTitulo` (null) da `object`, y `horasEstudiadas` pasa de `undefined` a `number`.
+
+Enlace: https://github.com/FernandoGarcia-medac/DWEC/blob/main/tema03/capturas/b-consola-ej1.png
 
 ### c) Consola del ejercicio 2
 
 ![Consola del ejercicio 2](capturas/c-consola-ej2.png)
 
-[Qué se ve, en una o dos líneas.]
+Las ocho conversiones con su resultado y su tipo. Destacan `Number("12abc")`, que da `NaN`, y `Number("")`, que da `0`.
+
+Enlace: https://github.com/FernandoGarcia-medac/DWEC/blob/main/tema03/capturas/c-consola-ej2.png
 
 ### d) Consola del ejercicio 3
 
 ![Consola del ejercicio 3](capturas/d-consola-ej3.png)
 
-[Qué se ve, en una o dos líneas.]
+Las seis expresiones que mezclan tipos y las tres parejas comparadas con `==` y con `===`. Por ejemplo, `"5" + 2` da `"52"` y `0 == false` da `true`, pero `0 === false` da `false`.
+
+Enlace: https://github.com/FernandoGarcia-medac/DWEC/blob/main/tema03/capturas/d-consola-ej3.png
 
 ### e) Consola del ejercicio 4, con el error de la const
 
 ![Consola del ejercicio 4 con el error de la const](capturas/e-consola-ej4.png)
 
-[Qué se ve, en una o dos líneas.]
+La ficha hecha con plantilla de cadena y con `+`, la comparación con `===` que da `true`, y el error `Assignment to constant variable` al intentar cambiar una `const`.
+
+Enlace: https://github.com/FernandoGarcia-medac/DWEC/blob/main/tema03/capturas/e-consola-ej4.png
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿qué conversiones te resultaron más intuitivas y cuáles te sorprendieron? Pon ejemplos concretos de tus tablas.]
+ESCRIBE AQUÍ TU REFLEXIÓN (de 5 a 8 líneas)
 
 ## Fuentes
 
-- [Título de la página](https://enlace-a-la-fuente)
+- [MDN Web Docs: operador typeof](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/typeof)
+- [MDN Web Docs: JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+He usado **Claude** y **Gemini** para orientarme en los pasos de la tarea, resolver dudas (por ejemplo, un error al cargar `app.js`) y obtener el código base de los ejercicios 2, 3 y 4, la estructura del `index.html` y algunas frases de explicación. También he consultado la documentación de MDN Web Docs. Después de cada respuesta he mirado el código, lo probé en el navegador, escribí mis predicciones antes de ejecutar y corregí erratas.
