@@ -70,7 +70,7 @@ function ejercicio2() {
 }
 
 
-// Ejercicio 3: Coerción y comparaciones
+//Ejercicio 3: Coerción y comparaciones
 function ejercicio3() {
     console.log("Ejercicio 3: Coerción y comparaciones ---");
     // Seis expresiones que mezclan tipos
@@ -91,23 +91,31 @@ function ejercicio3() {
 }
 
 
-// Ejercicio 4: Tu ficha con plantillas de cadena
+//Ejercicio 4: Tu ficha con plantillas de cadena
 function ejercicio4() {
-  console.log("Ejercicio 4: Tu ficha con plantillas de cadena");
+    console.log("Ejercicio 4: Tu ficha con plantillas de cadena");
+ 
+    //Mis datos, con const
+    const nombre = "Fernando";
+    const ciclo = "DAW";
+    const curso = "2º";
+    const aficion = "programador";
+ 
+    //Un dato que cambia, con let
+    let horasEstudiadas = 6;
+    horasEstudiadas += 4;
+ 
+    //La ficha con plantilla de cadena:con ${ }
+    const ficha = `Me llamo ${nombre}, estudio ${ciclo} en ${curso} y mi afición es ${aficion}. Esta semana he estudiado ${horasEstudiadas} horas.`;
+    alert(ficha);
+    console.log("Ficha con plantilla:", ficha);
+ 
+    //La misma ficha concatenando con +
+    const fichaConMas = "Me llamo " + nombre + ", estudio " + ciclo + " en " + curso + " y mi afición es " + aficion + ". Esta semana he estudiado " + horasEstudiadas + " horas.";
+    console.log("Ficha con +:", fichaConMas);
 
-  // Tus datos, con const
-  const nombre = "[Tu nombre]";
-  // TODO: ciclo, curso y una afición, también con const.
-
-  // Un dato que cambia, con let
-  // TODO: por ejemplo, las horas que has estudiado esta semana. Después súmale algo con +=.
-
-  // La ficha con plantilla de cadena: backticks (`) y ${ }
-  const ficha = `Soy ${nombre}.`;
-  // TODO: completa la ficha con todos tus datos y muéstrala con alert() y en la consola.
-
-  // TODO: escribe la misma ficha concatenando con + en una constante fichaConMas y muéstrala en la consola.
-  // TODO: compara las dos con === y muestra el resultado en la consola: tiene que salir true.
-
-  // Recuerda: el error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
+    // Comparo las dos con ===: tiene que salir true
+    console.log("¿Son iguales? →", ficha === fichaConMas);
+ 
+    // El error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
 }
