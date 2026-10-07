@@ -143,14 +143,14 @@
               <tr><th scope="col">Conversión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row"><code>String(123)</code></th><td><code>ESPERO</code></td><td><code>"123"</code> (string)</td></tr>
-              <tr><th scope="row"><code>Number("123")</code></th><td><code>ESPERO</code></td><td><code>123</code> (number)</td></tr>
-              <tr><th scope="row"><code>Number("12abc")</code></th><td><code>ESPERO</code></td><td><code>NaN</code> (number)</td></tr>
-              <tr><th scope="row"><code>Number("")</code></th><td><code>ESPERO</code></td><td><code>0</code> (number)</td></tr>
-              <tr><th scope="row"><code>Number(true)</code></th><td><code>ESPERO</code></td><td><code>1</code> (number)</td></tr>
-              <tr><th scope="row"><code>Boolean(0)</code></th><td><code>ESPERO</code></td><td><code>false</code> (boolean)</td></tr>
-              <tr><th scope="row"><code>Boolean("texto")</code></th><td><code>ESPERO</code></td><td><code>true</code> (boolean)</td></tr>
-              <tr><th scope="row"><code>Boolean("")</code></th><td><code>ESPERO</code></td><td><code>false</code> (boolean)</td></tr>
+              <tr><th scope="row"><code>String(123)</code></th><td><code>123</code></td><td><code>"123"</code> (string)</td></tr>
+              <tr><th scope="row"><code>Number("123")</code></th><td><code>123</code></td><td><code>123</code> (number)</td></tr>
+              <tr><th scope="row"><code>Number("12abc")</code></th><td><code>0</code></td><td><code>NaN</code> (number)</td></tr>
+              <tr><th scope="row"><code>Number("")</code></th><td><code>0</code></td><td><code>0</code> (number)</td></tr>
+              <tr><th scope="row"><code>Number(true)</code></th><td><code>1</code></td><td><code>1</code> (number)</td></tr>
+              <tr><th scope="row"><code>Boolean(0)</code></th><td><code>false</code></td><td><code>false</code> (boolean)</td></tr>
+              <tr><th scope="row"><code>Boolean("texto")</code></th><td><code>true</code></td><td><code>true</code> (boolean)</td></tr>
+              <tr><th scope="row"><code>Boolean("")</code></th><td><code>false</code></td><td><code>false</code> (boolean)</td></tr>
             </tbody>
           </table>
         </div>
@@ -200,17 +200,17 @@
               <tr><th scope="col">Expresión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row"><code>"5" - 2</code></th><td><code>ESPERO</code></td><td><code>3</code></td></tr>
-              <tr><th scope="row"><code>"5" + 2</code></th><td><code>ESPERO</code></td><td><code>"52"</code></td></tr>
-              <tr><th scope="row"><code>"10" * "2"</code></th><td><code>ESPERO</code></td><td><code>20</code></td></tr>
-              <tr><th scope="row"><code>true + 1</code></th><td><code>ESPERO</code></td><td><code>2</code></td></tr>
-              <tr><th scope="row"><code>"3" + 4 + 5</code></th><td><code>ESPERO</code></td><td><code>"345"</code></td></tr>
-              <tr><th scope="row"><code>"hola" - 1</code></th><td><code>ESPERO</code></td><td><code>NaN</code></td></tr>
-              <tr><th scope="row"><code>5 == "5"</code></th><td><code>ESPERO</code></td><td><code>true</code></td></tr>
-              <tr><th scope="row"><code>5 === "5"</code></th><td><code>ESPERO</code></td><td><code>false</code></td></tr>
-              <tr><th scope="row"><code>0 == false</code></th><td><code>ESPERO</code></td><td><code>true</code></td></tr>
-              <tr><th scope="row"><code>0 === false</code></th><td><code>ESPERO</code></td><td><code>false</code></td></tr>
-              <tr><th scope="row"><code>null == undefined</code></th><td><code>ESPERO</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row"><code>"5" - 2</code></th><td><code>3</code></td><td><code>3</code></td></tr>
+              <tr><th scope="row"><code>"5" + 2</code></th><td><code>"52"</code></td><td><code>"52"</code></td></tr>
+              <tr><th scope="row"><code>"10" * "2"</code></th><td><code>20</code></td><td><code>20</code></td></tr>
+              <tr><th scope="row"><code>true + 1</code></th><td><code>2</code></td><td><code>2</code></td></tr>
+              <tr><th scope="row"><code>"3" + 4 + 5</code></th><td><code>"345"</code></td><td><code>"345"</code></td></tr>
+              <tr><th scope="row"><code>"hola" - 1</code></th><td><code>NaN</code></td><td><code>NaN</ code></td></tr>
+              <tr><th scope="row"><code>5 == "5"</code></th><td><code>true</ code></td><td><code>true</ code></td></tr>
+              <tr><th scope="row"><code>5 === "5"</ code></th><td><code>false</ code></td><td><code>false</ code></td></tr>
+              <tr><th scope="row"><code>0 == false</ code></th><td><code>true</ code></td><td><code>true</ code></td></tr>
+              <tr><th scope="row"><code>0 === false</ code></th><td><code>false</ code></td><td><code>false</ code></td></tr>
+              <tr><th scope="row"><code>null == undefined</ code></th><td><Code>true</ Code ></ td >< td >< Code >true< Code ></ td >
               <tr><th scope="row"><code>null === undefined</code></th><td><code>ESPERO</code></td><td><code>false</code></td></tr>
             </tbody>
           </table>
