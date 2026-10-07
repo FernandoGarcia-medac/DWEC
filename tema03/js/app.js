@@ -62,10 +62,10 @@ function ejercicio2() {
     const booleanoDeCero = Boolean(0);// espero: false de tipo boolean
     console.log("Boolean(0) →", booleanoDeCero, typeof booleanoDeCero);
  
-    const booleanoDeTexto = Boolean("texto");//
+    const booleanoDeTexto = Boolean("texto");//espero: true de tipo boolean
     console.log('Boolean("texto") →', booleanoDeTexto, typeof booleanoDeTexto);
  
-    const booleanoDeVacio = Boolean("");//
+    const booleanoDeVacio = Boolean("");//espero: false de tipo boolean
     console.log('Boolean("") →', booleanoDeVacio, typeof booleanoDeVacio);
 }
 
