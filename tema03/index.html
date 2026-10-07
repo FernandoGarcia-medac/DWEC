@@ -88,7 +88,7 @@
           </table>
         </div>
 
-        <p class="small mb-0"><strong>El caso de null:</strong> ESCRIBE AQUÍ TU EXPLICACIÓN DE UNA LÍNEA</p>
+        <p class="small mb-0"><strong>El caso de null:</strong> <code>typeof null</code> da <code>"object"</code> por un fallo de JavaScript, aunque <code>null</code>significa que el valor esta vacio</p>
       </div>
 
       <div class="card-footer">
@@ -218,7 +218,7 @@
           </table>
         </div>
 
-        <p class="small mb-0"><strong>Cuándo manda la cadena y cuándo el número:</strong> ESCRIBE AQUÍ TU FRASE</p>
+        <p class="small mb-0"><strong>Cuándo manda la cadena y cuándo el número:</strong> Con <code>+</code> manda la cadena: si uno de los dos lados es texto, JavaScript pone los valores (<code>"5" + 2</code> da <code>"52"</code>). Con <code>-</code>, <code>*</code> y <code>/</code> manda el número: convierte el texto a número y calcula (<code>"5" - 2</code> da <code>3</code>) (este ha sido el mas complicado en mi opinion)</p>
       </div>
 
       <div class="card-footer">
@@ -274,8 +274,7 @@
           <strong>Error al reasignar una const en la consola del navegador:</strong><br>
           <code><code>EL ERROR:Uncaught TypeError: Assignment to constant variable.</code></code>
         </div>
-        <p class="small mb-0"><strong>Qué significa:</strong> ESCRIBE AQUÍ TU EXPLICACIÓN CON TUS PALABRAS</p>
-      </div>
+            <p class="small mb-0"><strong>Qué significa:</strong> Intenté darle otro valor a una const (<code>prueba = 2</code>) y JavaScript lanza un TypeError, porque una const queda fijada a su primer valor y no se puede reasignar. Por eso uso const para los datos que no cambian, como mi nombre, y let para los que sí, como las horas estudiadas.</p>      </div>
 
       <div class="card-footer">
         <button type="button" class="btn btn-primary" onclick="ejercicio4()">
@@ -288,9 +287,7 @@
   </main>
 
   <footer class="bg-body-tertiary border-top py-3">
-    <div class="container small text-body-secondary">
-      Fernando José García Fernández DWEC 26/27 Tarea 3:Las capturas, la reflexión y las fuentes están en el README.
-    </div>
+    <div class="container small text-body-secondary">Fernando José García Fernández DWEC 26/27 Tarea 3</div>
   </footer>
 
   <!-- JS de Bootstrap y, después, tu JavaScript -->
