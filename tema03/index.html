@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <!-- NAVBAR con tu nombre -->
+  <!-- NAVBAR con mi nombre Fernando -->
   <nav class="navbar bg-primary" data-bs-theme="dark">
     <div class="container">
       <span class="navbar-brand"><i class="bi bi-person-circle"></i> Fernando José García Fernández</span>
@@ -36,7 +36,7 @@
 
   <main class="container mb-5">
 
-    <!-- EJERCICIO 1 -->
+    <!--ejercicio 1-->
     <section class="card mb-4 shadow-sm">
 
       <div class="card-header d-flex align-items-center gap-2">
@@ -47,12 +47,28 @@
       <div class="card-body">
 
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio1() {
-  console.log("--- Ejercicio 1 · Variables y typeof ---");
-
-  const edad = 20;   // number
-  console.log("edad =", edad, "→", typeof edad);
-
-  [aquí va el resto de tu código]
+    console.log("Ejercicio 1: Variables y typeof");
+    // number
+    const edad = 21;   // espero que sea number
+    console.log("edad =", edad, "→", typeof edad);
+    // string
+    const nombre = "Fernando";   // espero que sea string
+    console.log("nombre =", nombre, "→", typeof nombre);
+    // boolean
+    const estudiaDaw = true;   // espero que sea boolean
+    console.log("estudiaDaw =", estudiaDaw, "→", typeof estudiaDaw);
+    // null
+    const segundoTitulo = null;   // espero que sea object (es un error histórico de JavaScript)
+    console.log("segundoTitulo =", segundoTitulo, "→", typeof segundoTitulo);
+    // bigint (entero terminado en n)
+    const numeroGrande = 10n;   // espero que sea bigint
+    console.log("numeroGrande =", numeroGrande, "→", typeof numeroGrande);
+    // undefined: let sin valor al declararla
+    let horasEstudiadas;   // espero que sea undefined
+    console.log("horasEstudiadas =", horasEstudiadas, "→", typeof horasEstudiadas);
+    // Ahora le doy valor a la let y vuelvo a mostrar su typeof
+    horasEstudiadas = 6;   // espero que sea number
+    console.log("horasEstudiadas =", horasEstudiadas, "→", typeof horasEstudiadas);
 }</code></pre>
 
         <div class="table-responsive">
@@ -61,13 +77,18 @@
               <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
-              <tr><th scope="row">[variable]</th><td><code>[valor]</code></td><td><code>[lo que esperas]</code></td><td><code>[lo que sale]</code></td></tr>
+              <tr><th scope="row">edad</th><td><code>21</code></td><td><code>number</code></td><td><code>number</code></td></tr>
+              <tr><th scope="row">nombre</th><td><code>"Fernando"</code></td><td><code>string</code></td><td><code>string</code></td></tr>
+              <tr><th scope="row">estudiaDaw</th><td><code>true</code></td><td><code>boolean</code></td><td><code>boolean</code></td></tr>
+              <tr><th scope="row">segundoTitulo</th><td><code>null</code></td><td><code>object</code></td><td><code>object</code></td></tr>
+              <tr><th scope="row">numeroGrande</th><td><code>10n</code></td><td><code>bigint</code></td><td><code>bigint</code></td></tr>
+              <tr><th scope="row">horasEstudiadas (sin valor)</th><td><code>undefined</code></td><td><code>undefined</code></td><td><code>undefined</code></td></tr>
+              <tr><th scope="row">horasEstudiadas (con valor)</th><td><code>6</code></td><td><code>number</code></td><td><code>number</code></td></tr>
             </tbody>
           </table>
         </div>
 
-        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
+        <p class="small mb-0"><strong>El caso de null:</strong> ESCRIBE AQUÍ TU EXPLICACIÓN DE UNA LÍNEA</p>
       </div>
 
       <div class="card-footer">
@@ -78,11 +99,197 @@
       </div>
     </section>
 
+    <!--ejercicio 2-->
+    <section class="card mb-4 shadow-sm">
+
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 2</span>
+        <h2 class="h5 mb-0">Conversiones explícitas</h2>
+      </div>
+
+      <div class="card-body">
+
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio2() {
+    console.log("--- Ejercicio 2 · Conversiones explícitas ---");
+
+    const textoDe123 = String(123);   // espero:
+    console.log("String(123) →", textoDe123, typeof textoDe123);
+
+    const numeroDe123 = Number("123");   // espero:
+    console.log('Number("123") →', numeroDe123, typeof numeroDe123);
+
+    const numeroDe12abc = Number("12abc");   // espero:
+    console.log('Number("12abc") →', numeroDe12abc, typeof numeroDe12abc);
+
+    const numeroDeVacio = Number("");   // espero:
+    console.log('Number("") →', numeroDeVacio, typeof numeroDeVacio);
+
+    const numeroDeTrue = Number(true);   // espero:
+    console.log("Number(true) →", numeroDeTrue, typeof numeroDeTrue);
+
+    const booleanoDeCero = Boolean(0);   // espero:
+    console.log("Boolean(0) →", booleanoDeCero, typeof booleanoDeCero);
+
+    const booleanoDeTexto = Boolean("texto");   // espero:
+    console.log('Boolean("texto") →', booleanoDeTexto, typeof booleanoDeTexto);
+
+    const booleanoDeVacio = Boolean("");   // espero:
+    console.log('Boolean("") →', booleanoDeVacio, typeof booleanoDeVacio);
+}</code></pre>
+
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Conversión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><code>String(123)</code></th><td><code>ESPERO</code></td><td><code>"123"</code> (string)</td></tr>
+              <tr><th scope="row"><code>Number("123")</code></th><td><code>ESPERO</code></td><td><code>123</code> (number)</td></tr>
+              <tr><th scope="row"><code>Number("12abc")</code></th><td><code>ESPERO</code></td><td><code>NaN</code> (number)</td></tr>
+              <tr><th scope="row"><code>Number("")</code></th><td><code>ESPERO</code></td><td><code>0</code> (number)</td></tr>
+              <tr><th scope="row"><code>Number(true)</code></th><td><code>ESPERO</code></td><td><code>1</code> (number)</td></tr>
+              <tr><th scope="row"><code>Boolean(0)</code></th><td><code>ESPERO</code></td><td><code>false</code> (boolean)</td></tr>
+              <tr><th scope="row"><code>Boolean("texto")</code></th><td><code>ESPERO</code></td><td><code>true</code> (boolean)</td></tr>
+              <tr><th scope="row"><code>Boolean("")</code></th><td><code>ESPERO</code></td><td><code>false</code> (boolean)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio2()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 2
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
+
+    <!--ejercicio 3-->
+    <section class="card mb-4 shadow-sm">
+
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 3</span>
+        <h2 class="h5 mb-0">Coerción y comparaciones</h2>
+      </div>
+
+      <div class="card-body">
+
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio3() {
+    console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
+
+    // Seis expresiones que mezclan tipos
+    console.log('"5" - 2 →', "5" - 2);   // espero:
+    console.log('"5" + 2 →', "5" + 2);   // espero:
+    console.log('"10" * "2" →', "10" * "2");   // espero:
+    console.log("true + 1 →", true + 1);   // espero:
+    console.log('"3" + 4 + 5 →', "3" + 4 + 5);   // espero:
+    console.log('"hola" - 1 →', "hola" - 1);   // espero:
+
+    // Tres parejas comparadas con == y con ===
+    console.log('5 == "5" →', 5 == "5");   // espero:
+    console.log('5 === "5" →', 5 === "5");   // espero:
+
+    console.log("0 == false →", 0 == false);   // espero:
+    console.log("0 === false →", 0 === false);   // espero:
+
+    console.log("null == undefined →", null == undefined);   // espero:
+    console.log("null === undefined →", null === undefined);   // espero:
+}</code></pre>
+
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Expresión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><code>"5" - 2</code></th><td><code>ESPERO</code></td><td><code>3</code></td></tr>
+              <tr><th scope="row"><code>"5" + 2</code></th><td><code>ESPERO</code></td><td><code>"52"</code></td></tr>
+              <tr><th scope="row"><code>"10" * "2"</code></th><td><code>ESPERO</code></td><td><code>20</code></td></tr>
+              <tr><th scope="row"><code>true + 1</code></th><td><code>ESPERO</code></td><td><code>2</code></td></tr>
+              <tr><th scope="row"><code>"3" + 4 + 5</code></th><td><code>ESPERO</code></td><td><code>"345"</code></td></tr>
+              <tr><th scope="row"><code>"hola" - 1</code></th><td><code>ESPERO</code></td><td><code>NaN</code></td></tr>
+              <tr><th scope="row"><code>5 == "5"</code></th><td><code>ESPERO</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row"><code>5 === "5"</code></th><td><code>ESPERO</code></td><td><code>false</code></td></tr>
+              <tr><th scope="row"><code>0 == false</code></th><td><code>ESPERO</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row"><code>0 === false</code></th><td><code>ESPERO</code></td><td><code>false</code></td></tr>
+              <tr><th scope="row"><code>null == undefined</code></th><td><code>ESPERO</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row"><code>null === undefined</code></th><td><code>ESPERO</code></td><td><code>false</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="small mb-0"><strong>Cuándo manda la cadena y cuándo el número:</strong> ESCRIBE AQUÍ TU FRASE</p>
+      </div>
+
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio3()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 3
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
+
+    <!--ejercicio 4-->
+    <section class="card mb-4 shadow-sm">
+
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 4</span>
+        <h2 class="h5 mb-0">Tu ficha con plantillas de cadena</h2>
+      </div>
+
+      <div class="card-body">
+
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio4() {
+    console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
+
+    // Mis datos, con const
+    const nombre = "Fernando";
+    const ciclo = "DAW";
+    const curso = "2º";
+    const aficion = "programador";
+
+    // Un dato que cambia, con let
+    let horasEstudiadas = 6;
+    horasEstudiadas += 4;
+
+    // La ficha con plantilla de cadena: backticks y ${ }
+    const ficha = `Me llamo ${nombre}, estudio ${ciclo} en ${curso} y mi afición es ${aficion}. Esta semana he estudiado ${horasEstudiadas} horas.`;
+    alert(ficha);
+    console.log("Ficha con plantilla:", ficha);
+
+    // La misma ficha concatenando con +
+    const fichaConMas = "Me llamo " + nombre + ", estudio " + ciclo + " en " + curso + " y mi afición es " + aficion + ". Esta semana he estudiado " + horasEstudiadas + " horas.";
+    console.log("Ficha con +:", fichaConMas);
+
+    // Comparo las dos con ===: tiene que salir true
+    console.log("¿Son iguales? →", ficha === fichaConMas);
+}</code></pre>
+
+        <p class="small mb-2"><strong>Qué sale en el alert y en la consola:</strong>
+          <em>Me llamo Fernando, estudio DAW en 2º y mi afición es programar. Esta semana he estudiado 10 horas.</em>
+          La comparación <code>ficha === fichaConMas</code> sale <code>true</code>.
+        </p>
+
+        <div class="alert alert-danger small mb-2" role="alert">
+          <strong>Error al reasignar una const en la consola del navegador:</strong><br>
+          <code><code>EL ERROR:Uncaught TypeError: Assignment to constant variable.</code></code>
+        </div>
+        <p class="small mb-0"><strong>Qué significa:</strong> ESCRIBE AQUÍ TU EXPLICACIÓN CON TUS PALABRAS</p>
+      </div>
+
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio4()">
+          <i class="bi bi-play-fill"></i>Ejecutar ejercicio 4
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en un alert y en la consola (F12).</span>
+      </div>
+    </section>
+
   </main>
 
   <footer class="bg-body-tertiary border-top py-3">
     <div class="container small text-body-secondary">
-      Fernando José García Fernández · DWEC 26/27 · Tarea 3 · Las capturas, la reflexión y las fuentes están en el README.
+      Fernando José García Fernández DWEC 26/27 Tarea 3:Las capturas, la reflexión y las fuentes están en el README.
     </div>
   </footer>
 
