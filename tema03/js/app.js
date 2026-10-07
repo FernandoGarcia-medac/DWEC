@@ -70,27 +70,24 @@ function ejercicio2() {
 }
 
 
-//Ejercicio 3: Coerción y comparaciones
+// Ejercicio 3: Coerción y comparaciones
 function ejercicio3() {
     console.log("Ejercicio 3: Coerción y comparaciones ---");
- 
     // Seis expresiones que mezclan tipos
-    console.log('"5" - 2 →', "5" - 2);//espero:
-    console.log('"5" + 2 →', "5" + 2); //espero:
-    console.log('"10" * "2" →', "10" * "2");//espero:
-    console.log("true + 1 →", true + 1);   // espero:
-    console.log('"3" + 4 + 5 →', "3" + 4 + 5);//espero:
-    console.log('"hola" - 1 →', "hola" - 1);//espero:
+    console.log('"5" - 2 →', "5" - 2);// espero: 3
+    console.log('"5" + 2 →', "5" + 2); //espero:"52"
+    console.log('"10" * "2" →', "10" * "2");//espero: 20
+    console.log("true + 1 →", true + 1);   // espero: 2
+    console.log('"3" + 4 + 5 →', "3" + 4 + 5);//espero: "345"
+    console.log('"hola" - 1 →', "hola" - 1);//espero: NaN
  
     // Tres parejas comparadas con == y con ===
-    console.log('5 == "5" →', 5 == "5");// espero:
-    console.log('5 === "5" →', 5 === "5");//espero:
- 
-    console.log("0 == false →", 0 == false);//espero:
-    console.log("0 === false →", 0 === false);//espero:
- 
-    console.log("null == undefined →", null == undefined);//espero:
-    console.log("null === undefined →", null === undefined);//espero:
+    console.log('5 == "5" →', 5 == "5");// espero:true
+    console.log('5 === "5" →', 5 === "5");//espero:false
+    console.log("0 == false →", 0 == false);//espero:true
+    console.log("0 === false →", 0 === false);//espero:falso
+    console.log("null == undefined →", null == undefined);// espero: true
+    console.log("null === undefined →", null === undefined);//espero: false
 }
 
 
