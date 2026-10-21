@@ -316,4 +316,26 @@ function badgesWhile() {
 
 function badgesDoWhile() {
   // TODO: lo mismo que badgesFor(), con un do…while.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+ 
+  if (Number.isNaN(veces) || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES) {
+    mostrar(`Escribe en el número 1 un entero de ${MAXIMO_REPETICIONES} como máximo.`, "danger");
+    console.warn("badges do while: número no válido");
+  } else {
+    let contador = 0;
+    let i = 1;
+ 
+    do {
+      const color = i % 2 === 0 ? "primary" : "danger";
+      anadirBadge(i, color);
+      console.log(`badges do while: ${i} en ${color}`);
+      contador++;
+      i++;
+    } while (i <= veces);
+ 
+    const palabra = contador === 1 ? "repetición" : "repeticiones";
+    anadirLinea(`Total: ${contador} ${palabra}`);
+    console.log(`badges do while: total ${contador} ${palabra}`);
+  }
 }
