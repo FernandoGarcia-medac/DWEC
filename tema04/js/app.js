@@ -37,7 +37,7 @@ function sumar() {
 
 function restar() {
   // TODO: como sumar(), con el operador -
-  function restar() {
+  
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
  
@@ -50,11 +50,11 @@ function restar() {
     console.log(`Restar: ${n1} - ${n2} = ${resultado}`);
   }
 }
-}
+
 
 function multiplicar() {
   // TODO: como sumar(), con el operador *
-  function multiplicar() {
+  
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
  
@@ -67,12 +67,12 @@ function multiplicar() {
     console.log(`Multiplicar: ${n1} * ${n2} = ${resultado}`);
   }
 }
-}
+
 
 function dividir() {
   // TODO: como sumar(), con el operador /
   // TODO: si el número 2 es 0, muestra un error en rojo. Ojo: en JavaScript, 5 / 0 no da error, da Infinity.
-  function dividir() {
+  
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
  
@@ -89,12 +89,12 @@ function dividir() {
     console.log(`Dividir: ${n1} / ${n2} = ${resultado}`);
   }
 }
-}
+
 
 
 function potencia() {
   // TODO: como sumar(), con el operador **
-  function potencia() {
+ 
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
  
@@ -107,12 +107,12 @@ function potencia() {
     console.log(`Potencia: ${n1} ** ${n2} = ${resultado}`);
   }
 }
-}
+
 
 function modulo() {
   // TODO: el resto de la división, con el operador %
   // TODO: si el número 2 es 0, muestra un error en rojo (5 % 0 da NaN).
-  function modulo() {
+  
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
  
@@ -129,7 +129,7 @@ function modulo() {
     console.log(`Módulo: ${n1} % ${n2} = ${resultado}`);
   }
 }
-}
+
 
 
 // ============================================================
@@ -138,7 +138,7 @@ function modulo() {
 
 function cualEsMayor() {
   // TODO: con if, else if y else, di cuál de los dos números es mayor o si son iguales.
-  function cualEsMayor() {
+  
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
  
@@ -156,12 +156,12 @@ function cualEsMayor() {
     console.log(`Cuál es mayor: ${n1} y ${n2} son iguales`);
   }
 }
-}
+
 
 function parOImpar() {
   // TODO: solo con el número 1. Usa el operador % y el ternario ( condición ? "par" : "impar" ).
   // TODO: si el número tiene decimales, avisa de que no es ni par ni impar.
-  function parOImpar() {
+  
   const n1 = leerNumero("numero1");
  
   if (Number.isNaN(n1)) {
@@ -177,7 +177,7 @@ function parOImpar() {
     console.log(`Par o impar: ${n1} es ${tipo}`);
   }
 }
-}
+
 
 
 // ============================================================
