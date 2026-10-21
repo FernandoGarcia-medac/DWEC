@@ -188,12 +188,23 @@ function parOImpar() {
 function bucleFor() {
   const veces = leerNumero("numero1");
   limpiarSalida();
-
-  // TODO: si el número falta, tiene decimales o pasa de MAXIMO_REPETICIONES, muestra un error en rojo.
-  // TODO: si no, repite con un for tantas veces como diga «veces». En cada vuelta:
-  //         anadirLinea(`for · repetición ${i} de ${veces}`);
-  //       y cuenta las vueltas en una variable contador.
-  // TODO: al terminar, añade una línea con el total: «Total: 5 repeticiones» o «Total: 1 repetición».
+ 
+  if (Number.isNaN(veces) || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES) {
+    mostrar(`Escribe en el número 1 un entero de ${MAXIMO_REPETICIONES} como máximo.`, "danger");
+    console.warn("for: número no válido");
+  } else {
+    let contador = 0;
+ 
+    for (let i = 1; i <= veces; i++) {
+      anadirLinea(`for: repetición ${i} de ${veces}`);
+      console.log(`for: repetición ${i} de ${veces}`);
+      contador++;
+    }
+ 
+    const palabra = contador === 1 ? "repetición" : "repeticiones";
+    anadirLinea(`Total: ${contador} ${palabra}`);
+    console.log(`for: total ${contador} ${palabra}`);
+  }
 }
 
 function bucleWhile() {
