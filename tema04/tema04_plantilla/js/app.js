@@ -1,5 +1,5 @@
 /*
-  Tarea 4 · DWEC · [Tu nombre y apellidos]
+  Tarea 4 · DWEC Fernando José García Fernández
   Calculadora y bucles.
 
   Cómo usar esta plantilla:
@@ -24,7 +24,7 @@ const MAXIMO_REPETICIONES = 20;   // para que un bucle no llene la página
 function sumar() {
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
-
+ 
   if (Number.isNaN(n1) || Number.isNaN(n2)) {
     mostrar("Escribe los dos números antes de operar.", "danger");
     console.warn("Sumar: falta algún número");
@@ -37,6 +37,19 @@ function sumar() {
 
 function restar() {
   // TODO: como sumar(), con el operador -
+  function restar() {
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+ 
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Restar: falta algún número");
+  } else {
+    const resultado = n1 - n2;
+    mostrar(`${n1} - ${n2} = ${resultado}`);
+    console.log(`Restar: ${n1} - ${n2} = ${resultado}`);
+  }
+}
 }
 
 function multiplicar() {
