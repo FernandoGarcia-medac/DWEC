@@ -12,4 +12,20 @@ function queNavegador() {
     alert("Tu navegador es este:\n" + agente);
     console.log("userAgent:", agente);
     console.warn("No es fiable");
+
 }
+
+function despedida(){
+    alert("Has pulsado el boton despedida");
+    console.log("adios");
+
+    }
+    /*APUNTES
+        FUNCIONES:
+            saludar()
+            simularError()
+            queNavegador
+    
+    */
+
+
