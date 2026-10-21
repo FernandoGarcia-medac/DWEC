@@ -36,7 +36,7 @@ Con 0 el for y el while no hacen ninguna vuelta, pero el do while hace una.
 
 ![Bucle con badges](capturas/e-badges.png)
 
-He puesto el número [X]. Los pares salen en azul y los impares en rojo, el color lo saco con el ternario.
+He puesto el número 8. Los pares salen en azul y los impares en rojo, el color lo saco con el ternario.
 
 ## Reflexión
 
