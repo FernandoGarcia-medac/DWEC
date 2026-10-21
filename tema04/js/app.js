@@ -178,7 +178,7 @@ function parOImpar() {
   }
 }
 
-
+ 
 
 // ============================================================
 // Ejercicio 3 · Bucles con texto
