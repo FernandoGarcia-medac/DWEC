@@ -112,6 +112,23 @@ function potencia() {
 function modulo() {
   // TODO: el resto de la división, con el operador %
   // TODO: si el número 2 es 0, muestra un error en rojo (5 % 0 da NaN).
+  function modulo() {
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+ 
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Módulo: falta algún número");
+  } else if (n2 === 0) {
+    // 5 % 0 da NaN, también lo controlo
+    mostrar("No se puede sacar el resto de dividir entre 0.", "danger");
+    console.error("Módulo: el número 2 es 0");
+  } else {
+    const resultado = n1 % n2;
+    mostrar(`${n1} % ${n2} = ${resultado}`);
+    console.log(`Módulo: ${n1} % ${n2} = ${resultado}`);
+  }
+}
 }
 
 
