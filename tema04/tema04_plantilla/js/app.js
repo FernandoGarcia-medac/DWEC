@@ -94,6 +94,19 @@ function dividir() {
 
 function potencia() {
   // TODO: como sumar(), con el operador **
+  function potencia() {
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+ 
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Potencia: falta algún número");
+  } else {
+    const resultado = n1 ** n2;
+    mostrar(`${n1} elevado a ${n2} = ${resultado}`);
+    console.log(`Potencia: ${n1} ** ${n2} = ${resultado}`);
+  }
+}
 }
 
 function modulo() {
