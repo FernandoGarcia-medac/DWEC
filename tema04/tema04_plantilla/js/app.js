@@ -72,7 +72,25 @@ function multiplicar() {
 function dividir() {
   // TODO: como sumar(), con el operador /
   // TODO: si el número 2 es 0, muestra un error en rojo. Ojo: en JavaScript, 5 / 0 no da error, da Infinity.
+  function dividir() {
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+ 
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Dividir: falta algún número");
+  } else if (n2 === 0) {
+    // 5 / 0 no da error, da Infinity, así que lo controlo yo
+    mostrar("No se puede dividir entre 0.", "danger");
+    console.error("Dividir: el número 2 es 0");
+  } else {
+    const resultado = n1 / n2;
+    mostrar(`${n1} / ${n2} = ${resultado}`);
+    console.log(`Dividir: ${n1} / ${n2} = ${resultado}`);
+  }
 }
+}
+
 
 function potencia() {
   // TODO: como sumar(), con el operador **
