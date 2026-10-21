@@ -138,6 +138,24 @@ function modulo() {
 
 function cualEsMayor() {
   // TODO: con if, else if y else, di cuál de los dos números es mayor o si son iguales.
+  function cualEsMayor() {
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+ 
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números para compararlos.", "danger");
+    console.warn("Cuál es mayor: falta algún número");
+  } else if (n1 > n2) {
+    mostrar(`${n1} es mayor que ${n2}`, "info");
+    console.log(`Cuál es mayor: ${n1} > ${n2}`);
+  } else if (n1 < n2) {
+    mostrar(`${n2} es mayor que ${n1}`, "info");
+    console.log(`Cuál es mayor: ${n2} > ${n1}`);
+  } else {
+    mostrar(`Los dos números son iguales (${n1})`, "info");
+    console.log(`Cuál es mayor: ${n1} y ${n2} son iguales`);
+  }
+}
 }
 
 function parOImpar() {
