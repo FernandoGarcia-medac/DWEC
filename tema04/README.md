@@ -1,58 +1,54 @@
-# Tarea 4 · Calculadora y bucles
+# Tarea 4 Calculadora y bucles
 
-**Autor:** [Tu nombre y apellidos] · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
+**Alumno:** Fernando José García Fernández
 
-> **Plantilla de la tarea 4.** Cómo usarla:
->
-> 1. Copia esta carpeta en tu repositorio de DWEC y cámbiale el nombre a `tema04`.
-> 2. `index.html` trae lo imprescindible para empezar: las dos casillas, la zona de resultado y el botón «Sumar». El resto de la página y su maquetación con Bootstrap los haces tú.
-> 3. `js/app.js` trae `sumar()` hecha como modelo y las demás funciones con `TODO`.
-> 4. `js/ayudas.js` no se toca: son las funciones que leen las casillas y escriben el resultado.
-> 5. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
-> 6. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
+**Módulo:** Desarrollo Web en Entorno Cliente, 2º DAW, curso 2026/27
 
-[Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live**, escribir dos números y pulsar los botones con la consola abierta (F12).]
+En esta carpeta está la página de la calculadora y los bucles. Para probarla abro la carpeta en VS Code, le doy a Go Live, escribo los números y pulso los botones con la consola abierta (F12).
 
 ## Capturas
 
-### a) La página entera
+**1. La página entera**
 
-<img src="capturas/a-pagina.png" alt="La página entera con mi nombre en la navbar" width="600">
+<img src="capturas/a-pagina.png" alt="Página entera con mi nombre" width="600">
 
-[Qué se ve: tu nombre en la navbar y cómo has repartido las cards con la rejilla.]
+Mi nombre sale arriba en la barra y abajo en el pie. Arriba están los números y el resultado, y debajo de la línea los tres ejercicios en columnas.
 
-### b) La página en el móvil
+**2. La página en el móvil**
 
-<img src="capturas/b-movil.png" alt="La página en el modo móvil de las herramientas de desarrollo" width="300">
+<img src="capturas/b-movil.png" alt="Página en modo móvil" width="300">
 
-[Qué cambia respecto a la pantalla grande.]
+En el móvil todas las cards se ponen una debajo de otra porque usan col-12.
 
-### c) El error de dividir entre 0
+**3. Dividir entre 0**
 
-![El error de dividir entre 0 con la consola abierta](capturas/c-dividir-cero.png)
+![Error al dividir entre 0](capturas/c-dividir-cero.png)
 
-[Qué se ve en la página y en la consola.]
+Con el número 2 a 0 sale el aviso en rojo y en la consola el error, en vez de salir Infinity.
 
-### d) Los tres bucles con el número 0
+**4. Los tres bucles con 0**
 
-![Los tres bucles de texto con el número 0 y la consola abierta](capturas/d-bucles-cero.png)
+![Los tres bucles con el número 0](capturas/d-bucles-cero.png)
 
-[Cuántas veces se repite cada bucle y por qué.]
+Con 0 el for y el while no hacen ninguna vuelta, pero el do while hace una.
 
-### e) Un bucle con badges
+**5. Bucle con badges**
 
-![Un bucle con badges](capturas/e-badges.png)
+![Bucle con badges](capturas/e-badges.png)
 
-[Qué número has puesto y cómo eliges el color de cada badge.]
+He puesto el número [X]. Los pares salen en azul y los impares en rojo, el color lo saco con el ternario.
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿en qué se diferencian for, while y do…while y cuándo usarías cada uno? Pon como ejemplo lo que pasó con el 0.]
+Los tres bucles repiten código pero cambia cuándo comprueban la condición. El for lo uso cuando sé cuántas vueltas va a dar, porque el contador, la condición y el i++ van en la misma línea. El while comprueba la condición antes de entrar, así que lo usaría cuando no sé cuántas vueltas va a dar. El do while primero hace la vuelta y después comprueba, por eso siempre entra una vez. Esto lo vi probando con el 0: el for y el while miran si 1 <= 0, como es falso no hacen nada, pero el do while escribe la primera línea antes de comprobarlo. Con un negativo pasa lo mismo.
 
 ## Fuentes
 
-- [Título de la página](https://enlace-a-la-fuente)
+- [MDN: Bucles e iteración](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration)
+- [MDN: Operador condicional (ternario)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Conditional_operator)
+- [MDN: Resto (%)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Remainder)
+- [Documentación de Bootstrap 5.3](https://getbootstrap.com/docs/5.3/)
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+He usado Claude para que me guiara con los pasos de la tarea y me diera una base del código y de la maquetación. Después lo he cambiado a mi gusto, lo he probado con varios números y la consola abierta y me he asegurado de entender cada función para la defensa.
