@@ -54,6 +54,19 @@ function restar() {
 
 function multiplicar() {
   // TODO: como sumar(), con el operador *
+  function multiplicar() {
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+ 
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Multiplicar: falta algún número");
+  } else {
+    const resultado = n1 * n2;
+    mostrar(`${n1} * ${n2} = ${resultado}`);
+    console.log(`Multiplicar: ${n1} * ${n2} = ${resultado}`);
+  }
+}
 }
 
 function dividir() {
