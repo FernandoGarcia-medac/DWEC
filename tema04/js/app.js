@@ -266,6 +266,26 @@ function badgesFor() {
   // TODO: como bucleFor(), pero cada vuelta añade un badge con el número de la repetición:
   //         anadirBadge(i, "primary");
   // TODO: los pares, de un color y los impares, de otro. Elige el color con el operador ternario.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+ 
+  if (Number.isNaN(veces) || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES) {
+    mostrar(`Escribe en el número 1 un entero de ${MAXIMO_REPETICIONES} como máximo.`, "danger");
+    console.warn("badges for: número no válido");
+  } else {
+    let contador = 0;
+ 
+    for (let i = 1; i <= veces; i++) {
+      const color = i % 2 === 0 ? "primary" : "danger";
+      anadirBadge(i, color);
+      console.log(`badges for: ${i} en ${color}`);
+      contador++;
+    }
+ 
+    const palabra = contador === 1 ? "repetición" : "repeticiones";
+    anadirLinea(`Total: ${contador} ${palabra}`);
+    console.log(`badges for: total ${contador} ${palabra}`);
+  }
 }
 
 function badgesWhile() {
