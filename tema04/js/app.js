@@ -208,9 +208,29 @@ function bucleFor() {
 }
 
 function bucleWhile() {
-  // TODO: lo mismo que bucleFor(), con un while.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+ 
+  if (Number.isNaN(veces) || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES) {
+    mostrar(`Escribe en el número 1 un entero de ${MAXIMO_REPETICIONES} como máximo.`, "danger");
+    console.warn("while: número no válido");
+  } else {
+    let contador = 0;
+    let i = 1;
+ 
+    // primero comprueba la condición y luego repite
+    while (i <= veces) {
+      anadirLinea(`while: repetición ${i} de ${veces}`);
+      console.log(`while: repetición ${i} de ${veces}`);
+      contador++;
+      i++;
+    }
+ 
+    const palabra = contador === 1 ? "repetición" : "repeticiones";
+    anadirLinea(`Total: ${contador} ${palabra}`);
+    console.log(`while: total ${contador} ${palabra}`);
+  }
 }
-
 function bucleDoWhile() {
   // TODO: lo mismo que bucleFor(), con un do…while. Pruébalo con 0 y con un negativo: ¿qué pasa?
 }
