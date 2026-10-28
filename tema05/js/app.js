@@ -1,27 +1,15 @@
 /*
-  Tarea 5 · DWEC · [Tu nombre y apellidos]
-  Manipular el DOM.
-
-  Cómo usar esta plantilla:
-  · Desde este tema, el JavaScript escribe en la página: selecciona elementos y cambia su texto, sus clases...
-  · Hay una función por botón. Escribe tu código donde pone TODO y, cuando termines, borra el TODO.
-  · app.js se carga en el <head> con defer: cuando se ejecuta, el HTML ya está leído.
-  · Selecciona con document.querySelector() / querySelectorAll() (o getElementById).
-  · Texto con textContent; aspecto con classList y las clases de Bootstrap (no con style).
-  · Cada función deja también su rastro en la consola con console.log().
-  · let y const, nunca var. Compara siempre con ===. Comillas rectas.
+  Tarea 5 de DWEC. Fernando José García Fernández.
+  Manipular el DOM: seleccionar, cambiar, crear y borrar elementos con JavaScript.
+  Hay una función por botón y cada una deja un mensaje en la consola con console.log().
 */
 
 console.log("app.js cargado");
 
 
-// ============================================================
-// Ejercicio 1 · Selectores y modificación
-// Un selector distinto para cada párrafo
-// ============================================================
-
+// Ejercicio 1: selectores y modificación (un selector distinto para cada párrafo)
 function aplicarCambios() {
-  // El modelo: el primer párrafo, por su id
+  // El primer párrafo, por su id
   const primero = document.getElementById("primero");
   primero.textContent = "Texto modificado por JavaScript";
 
@@ -37,10 +25,7 @@ function aplicarCambios() {
 }
 
 
-// ============================================================
-// Ejercicio 2 · Crear y eliminar nodos
-// ============================================================
-
+// Ejercicio 2: crear y eliminar nodos
 function anadirParrafo() {
   const contenido = document.querySelector("#contenido");
 
@@ -72,21 +57,17 @@ function eliminarUltimo() {
 }
 
 
-// ============================================================
-// Ejercicio 3 · Resaltar al pasar el ratón
-// ============================================================
-
+// Ejercicio 3: resaltar al pasar el ratón
 function activarResaltado() {
   const parrafos = document.querySelectorAll("#contenido p");
 
   for (const parrafo of parrafos) {
-    // addEventListener("mouseenter", ...) ejecuta la función cuando el ratón entra en el párrafo.
-    // Los eventos los veremos a fondo en el tema 9: de momento, copia este modelo.
+    // Cuando el ratón entra en el párrafo, le pongo la clase
     parrafo.addEventListener("mouseenter", function () {
       parrafo.classList.add("bg-body-secondary");
     });
 
-    // Lo mismo con "mouseleave": cuando el ratón sale, quito la clase
+    // Cuando el ratón sale, le quito la clase
     parrafo.addEventListener("mouseleave", function () {
       parrafo.classList.remove("bg-body-secondary");
     });
@@ -96,10 +77,7 @@ function activarResaltado() {
 }
 
 
-// ============================================================
-// Ejercicio 4 · Cambiar el primer párrafo
-// ============================================================
-
+// Ejercicio 4: cambiar el primer párrafo
 function cambiarTexto() {
   const texto = document.getElementById("nuevoTexto").value.trim();
   const error = document.getElementById("error4");
@@ -133,10 +111,7 @@ function cambiarConHtml() {
 }
 
 
-// ============================================================
-// Ejercicio 5 · Lista de tareas
-// ============================================================
-
+// Ejercicio 5: lista de tareas
 function anadirTarea() {
   const input = document.getElementById("tareaInput");
   const texto = input.value.trim();
@@ -192,12 +167,9 @@ function borrarCompletadas() {
 }
 
 
-// ============================================================
-// Ejercicio 6 · Datos de la ventana (BOM)
-// ============================================================
-
+// Ejercicio 6: datos de la ventana (BOM)
 function verDatosVentana() {
-  // El modelo: el tamaño de la ventana
+  // El tamaño de la ventana
   const ancho = window.innerWidth;
   const alto = window.innerHeight;
   document.querySelector("#datoVentana").textContent = `${ancho} × ${alto} px`;
