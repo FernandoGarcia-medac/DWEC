@@ -101,14 +101,35 @@ function activarResaltado() {
 // ============================================================
 
 function cambiarTexto() {
-  // TODO: lee lo escrito en #nuevoTexto con value y quítale los espacios de los extremos con trim().
-  // TODO: si está vacío, muestra el error #error4 (quítale "d-none") y no cambies nada.
-  // TODO: si no, pon ese texto en el primer párrafo de #contenido con textContent y oculta el error.
+  const texto = document.getElementById("nuevoTexto").value.trim();
+  const error = document.getElementById("error4");
+  const primero = document.querySelector("#contenido p");
+
+  if (texto === "") {
+    // Si está vacío enseño el error y no cambio nada
+    error.classList.remove("d-none");
+    return;
+  }
+
+  error.classList.add("d-none");
+  primero.textContent = texto;
+  console.log("He cambiado el párrafo con textContent: " + texto);
 }
 
 function cambiarConHtml() {
-  // TODO: lo mismo que cambiarTexto(), pero con innerHTML.
-  //       Prueba las dos con <b>hola</b> y explica en el README qué diferencia ves y por qué es peligroso.
+  const texto = document.getElementById("nuevoTexto").value.trim();
+  const error = document.getElementById("error4");
+  const primero = document.querySelector("#contenido p");
+
+  if (texto === "") {
+    error.classList.remove("d-none");
+    return;
+  }
+
+  error.classList.add("d-none");
+  // Con innerHTML el navegador interpreta el texto como HTML (ojo, es peligroso con lo que escribe el usuario)
+  primero.innerHTML = texto;
+  console.log("He cambiado el párrafo con innerHTML: " + texto);
 }
 
 
