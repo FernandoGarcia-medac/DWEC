@@ -202,8 +202,27 @@ function verDatosVentana() {
   const alto = window.innerHeight;
   document.querySelector("#datoVentana").textContent = `${ancho} × ${alto} px`;
 
-  // TODO: con if / else if, el punto de corte de Bootstrap según el ancho: xs (< 576), sm (≥ 576), md (≥ 768),
-  //       lg (≥ 992), xl (≥ 1200) y xxl (≥ 1400). Escríbelo en #datoPunto.
-  // TODO: el tamaño de la pantalla (screen.width y screen.height) en #datoPantalla.
-  // TODO: la URL (location.href) en #datoUrl y el idioma del navegador (navigator.language) en #datoIdioma.
+  // El punto de corte de Bootstrap según el ancho
+  let punto;
+  if (ancho < 576) {
+    punto = "xs (< 576)";
+  } else if (ancho < 768) {
+    punto = "sm (≥ 576)";
+  } else if (ancho < 992) {
+    punto = "md (≥ 768)";
+  } else if (ancho < 1200) {
+    punto = "lg (≥ 992)";
+  } else if (ancho < 1400) {
+    punto = "xl (≥ 1200)";
+  } else {
+    punto = "xxl (≥ 1400)";
+  }
+  document.querySelector("#datoPunto").textContent = punto;
+
+  // El tamaño de la pantalla, la URL y el idioma del navegador
+  document.querySelector("#datoPantalla").textContent = `${screen.width} × ${screen.height} px`;
+  document.querySelector("#datoUrl").textContent = location.href;
+  document.querySelector("#datoIdioma").textContent = navigator.language;
+
+  console.log("He mostrado los datos de la ventana (" + punto + ").");
 }
