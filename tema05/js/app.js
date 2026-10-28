@@ -138,19 +138,57 @@ function cambiarConHtml() {
 // ============================================================
 
 function anadirTarea() {
-  // TODO: lee el texto de #tareaInput (value + trim). Si está vacío, muestra un mensaje en #error5.
-  // TODO: si no, crea un <li class="list-group-item"> con dos elementos dentro:
-  //         · un <input> de tipo "checkbox" con la clase "form-check-input",
-  //         · un <span> con el texto de la tarea (textContent).
-  //       Cuelga el <li> de #listaTareas y vacía la casilla (value = "").
-  // TODO: actualiza #totalTareas con el número de <li> que hay en la lista.
+  const input = document.getElementById("tareaInput");
+  const texto = input.value.trim();
+  const error = document.getElementById("error5");
+
+  if (texto === "") {
+    error.textContent = "Escribe una tarea antes de añadirla.";
+    error.classList.remove("d-none");
+    return;
+  }
+  error.classList.add("d-none");
+
+  // Creo el <li> con la casilla y el texto dentro
+  const li = document.createElement("li");
+  li.className = "list-group-item d-flex align-items-center gap-2";
+
+  const casilla = document.createElement("input");
+  casilla.type = "checkbox";
+  casilla.className = "form-check-input";
+
+  const span = document.createElement("span");
+  span.textContent = texto;
+
+  li.append(casilla, span);
+  document.getElementById("listaTareas").append(li);
+
+  // Vacío la casilla de texto y actualizo el contador
+  input.value = "";
+  document.getElementById("totalTareas").textContent = document.querySelectorAll("#listaTareas li").length;
+
+  console.log("He añadido la tarea: " + texto);
 }
 
 function borrarCompletadas() {
-  // TODO: selecciona las casillas marcadas: document.querySelectorAll("#listaTareas input:checked").
-  // TODO: si no hay ninguna, avisa en #error5. Si hay, recórrelas con for…of y borra el <li> de cada una
-  //       (el <li> es el padre de la casilla: parentElement).
-  // TODO: actualiza #totalTareas.
+  const marcadas = document.querySelectorAll("#listaTareas input:checked");
+  const error = document.getElementById("error5");
+
+  if (marcadas.length === 0) {
+    error.textContent = "No hay tareas marcadas para borrar.";
+    error.classList.remove("d-none");
+    return;
+  }
+  error.classList.add("d-none");
+
+  // Borro el <li> de cada casilla marcada (el <li> es el padre de la casilla)
+  for (const casilla of marcadas) {
+    casilla.parentElement.remove();
+  }
+
+  document.getElementById("totalTareas").textContent = document.querySelectorAll("#listaTareas li").length;
+
+  console.log("He borrado " + marcadas.length + " tareas.");
 }
 
 
