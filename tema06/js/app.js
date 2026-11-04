@@ -1,66 +1,71 @@
 /*
-  Tarea 6 · DWEC · [Tu nombre y apellidos]
-  Objetos y arrays.
-
-  Cómo usar esta plantilla:
-  · Hay una función por botón. Escribe tu código donde pone TODO y, cuando termines, borra el TODO.
-  · Ya tienes hechas, como modelo, comoTexto(), pintarProductos() y el ejercicio 2 casi entero:
-    léelas antes de empezar, porque el resto se hace igual.
-  · Los resultados se pintan en la página como en el tema 5: createElement, textContent, classList y append.
-    Antes de volver a pintar una lista, vacíala con textContent = "".
-  · Las funciones se escriben con function, también las que pasas a forEach, sort, map, filter o reduce.
-    Las funciones flecha las veremos en el tema 7: en esta tarea, no las uses.
-  · Cada función deja también su rastro en la consola con console.log().
-  · let y const, nunca var. Compara siempre con ===. Comillas rectas.
+  Tarea 6 de DWEC. Fernando José García Fernández.
+  Objetos y arrays: añadir, sacar, ordenar, filtrar, buscar y transformar.
+  Hay una función por botón y cada una deja un mensaje en la consola con console.log().
 */
 
 console.log("app.js cargado");
 
 
-// ============================================================
-// Ayuda: un array como texto, por ejemplo [1, 2, 3]
-// (ya está hecha: úsala cuando quieras enseñar un array)
-// ============================================================
+// Ayuda: devuelve un array como texto, por ejemplo [1, 2, 3]
 
 function comoTexto(lista) {
   return "[" + lista.join(", ") + "]";
 }
 
 
-// ============================================================
-// Ejercicio 1 · Ficha de estudiante
-// ============================================================
+// Ejercicio 1: ficha de estudiante
 
-// TODO: completa el objeto literal con tus datos: nombre, apellidos, edad y curso.
-// TODO: añádele el método presentarse(), que devuelve una frase con this.nombre, this.apellidos, this.edad y this.curso.
-//       Por ejemplo: «Soy [nombre] [apellidos], tengo [edad] años y estudio [curso].»
+// Objeto con mis datos. En presentarse() uso this para leer las propiedades del propio objeto
 const estudiante = {
-
+  nombre: "Fernando José",
+  apellidos: "García Fernández",
+  edad: 21,
+  curso: "2.º DAW",
+  presentarse: function () {
+    return "Soy " + this.nombre + " " + this.apellidos + ", tengo " + this.edad + " años y estudio " + this.curso + ".";
+  }
 };
 
 function verFicha() {
-  // TODO: vacía #salida1 (textContent = "").
-  // TODO: crea un <ul class="list-group"> con un <li class="list-group-item"> por propiedad: «nombre: ...», «edad: ...».
-  //       Pista: guarda las claves en un array, ["nombre", "apellidos", "edad", "curso"], recórrelo con forEach
-  //       y lee cada valor con corchetes: estudiante[clave].
-  // TODO: debajo, un <p> con la frase de estudiante.presentarse().
-  // TODO: console.log() del objeto entero.
+  const salida = document.querySelector("#salida1");
+  salida.textContent = "";   // vacío la ficha antes de volver a pintarla
+
+  const lista = document.createElement("ul");
+  lista.classList.add("list-group");
+
+  // Guardo las claves en un array y leo cada valor con corchetes porque la clave está en una variable
+  const claves = ["nombre", "apellidos", "edad", "curso"];
+  claves.forEach(function (clave) {
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    li.textContent = clave + ": " + estudiante[clave];
+    lista.append(li);
+  });
+
+  // Debajo de la lista va la frase de presentarse()
+  const frase = document.createElement("p");
+  frase.classList.add("fst-italic", "mt-2", "mb-0");
+  frase.textContent = estudiante.presentarse();
+
+  salida.append(lista, frase);
+  console.log("Ejercicio 1: ficha", estudiante);
 }
 
 function cumplirAnios() {
-  // TODO: suma 1 a la edad del estudiante y vuelve a pintar la ficha (llama a verFicha()).
+  estudiante.edad = estudiante.edad + 1;
+  console.log("Ejercicio 1: ahora la edad es", estudiante.edad);
+  verFicha();
 }
 
 function quitarCurso() {
-  // TODO: borra la propiedad curso con delete y vuelve a pintar la ficha.
-  //       Fíjate en lo que sale ahora en el curso y explícalo en el README.
+  delete estudiante.curso;   // la propiedad deja de existir en el objeto
+  console.log("Ejercicio 1: curso borrado, ahora vale", estudiante.curso);
+  verFicha();
 }
 
 
-// ============================================================
-// Ejercicio 2 · Colores
-// mostrarColores() y anadirColor() ya están hechas: son el modelo
-// ============================================================
+// Ejercicio 2: colores
 
 const colores = ["rojo", "verde", "azul"];
 
@@ -112,11 +117,8 @@ function quitarPrimero() {
 mostrarColores();   // pinta los tres colores de partida nada más cargar
 
 
-// ============================================================
-// Ejercicio 3 · Catálogo de productos
-// ============================================================
+// Ejercicio 3: catálogo de productos
 
-// Puedes cambiar los productos por otros, pero deja al menos seis, con estas tres propiedades
 const productos = [
   { nombre: "Teclado mecánico", precio: 79.9, categoria: "Periféricos" },
   { nombre: "Ratón inalámbrico", precio: 24.5, categoria: "Periféricos" },
@@ -126,7 +128,7 @@ const productos = [
   { nombre: "Auriculares con micro", precio: 59, categoria: "Audio" }
 ];
 
-// Ya está hecha: pinta en la tabla la lista de productos que le pases
+// Pinta en la tabla la lista de productos que le pases
 function pintarProductos(lista) {
   const cuerpo = document.querySelector("#tablaProductos");
   cuerpo.textContent = "";
@@ -174,9 +176,7 @@ function buscarProducto() {
 mostrarProductos();   // la tabla completa nada más cargar
 
 
-// ============================================================
-// Ejercicio 4 · Notas
-// ============================================================
+// Ejercicio 4: notas
 
 const alumno = {
   nombre: "[Tu nombre]",
@@ -207,9 +207,7 @@ function borrarNotas() {
 mostrarNotas();
 
 
-// ============================================================
-// Ejercicio 5 · map, filter y reduce
-// ============================================================
+// Ejercicio 5: map, filter y reduce
 
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -232,9 +230,7 @@ function verCadena() {
 }
 
 
-// ============================================================
-// Ejercicio 6 · Ciudades
-// ============================================================
+// Ejercicio 6: ciudades
 
 const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", "Almería", "Cádiz", "Huelva"];
 let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
