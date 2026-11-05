@@ -443,12 +443,31 @@ function hacerSplice() {
 }
 
 function restaurarCiudades() {
-  // TODO: vuelve a copiar ciudadesOriginal en ciudades y pinta.
+  // Hago otra copia para que los siguientes splice no toquen ciudadesOriginal
+  ciudades = [...ciudadesOriginal];
+  mostrarCiudades();
+  escribirSalida("#salida6", ["Ciudades restauradas: vuelve a haber " + ciudades.length + "."]);
+  console.log("Ejercicio 6: ciudades restauradas");
 }
 
 function buscarCiudad() {
-  // TODO: lee #buscarCiudad (value y trim). Si está vacío, avisa.
-  // TODO: escribe en #salida6 lo que dan includes() e indexOf() con ese nombre. Si no está, indexOf da -1.
+  const nombre = document.querySelector("#buscarCiudad").value.trim();
+
+  if (nombre === "") {
+    escribirSalida("#salida6", ["Escribe el nombre de una ciudad antes de buscar."]);
+    console.log("Ejercicio 6: búsqueda vacía");
+    return;
+  }
+
+  // includes dice si está (true o false) e indexOf dice en qué posición (-1 si no está)
+  const esta = ciudades.includes(nombre);
+  const posicion = ciudades.indexOf(nombre);
+
+  escribirSalida("#salida6", [
+    "includes(\"" + nombre + "\") devuelve " + esta,
+    "indexOf(\"" + nombre + "\") devuelve " + posicion
+  ]);
+  console.log("Ejercicio 6: " + nombre + ", includes " + esta + ", indexOf " + posicion);
 }
 
 mostrarCiudades();
