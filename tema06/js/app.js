@@ -170,14 +170,23 @@ function pintarProductos(lista) {
 }
 
 function mostrarProductos() {
-  // TODO: pinta todos los productos con pintarProductos() y escribe en #mensaje3 cuántos hay.
+  pintarProductos(productos);
+  document.querySelector("#mensaje3").textContent = "Hay " + productos.length + " productos en el catálogo.";
+  console.log("Ejercicio 3: catálogo completo,", productos.length, "productos");
 }
 
 function ordenarPorPrecio() {
-  // TODO: haz una copia del array con [...productos] y ordénala con sort() de más barato a más caro.
-  //       sort necesita una función de comparación: function (a, b) { return ... }.
-  //       ¿Por qué una copia? Explícalo en el README.
-  // TODO: pinta la copia y escribe en #mensaje3 cómo están ordenados.
+  // sort cambia el array sobre el que se usa, por eso ordeno una copia y productos se queda como estaba
+  const copia = [...productos];
+
+  // Si la resta sale negativa, a va antes que b: así quedan de más barato a más caro
+  copia.sort(function (a, b) {
+    return a.precio - b.precio;
+  });
+
+  pintarProductos(copia);
+  document.querySelector("#mensaje3").textContent = "Ordenados de más barato a más caro.";
+  console.log("Ejercicio 3: el más barato de la copia es " + copia[0].nombre + " y el primero del original sigue siendo " + productos[0].nombre);
 }
 
 function filtrarCaros() {
