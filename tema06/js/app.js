@@ -350,11 +350,23 @@ function verDobles() {
 }
 
 function verPares() {
-  // TODO: con filter(), los números pares (n % 2 === 0). Escríbelos en #salida5 como en verDobles().
+  // Un número es par si al dividirlo entre 2 el resto es 0
+  const pares = numeros.filter(function (numero) {
+    return numero % 2 === 0;
+  });
+
+  escribirSalida5(["filter: " + comoTexto(pares), "numeros: " + comoTexto(numeros)]);
+  console.log("Ejercicio 5: pares " + comoTexto(pares));
 }
 
 function verSuma() {
-  // TODO: con reduce(), la suma de todos los números (empieza en 0). Escríbela en #salida5.
+  // reduce va acumulando en total y empieza en 0
+  const suma = numeros.reduce(function (total, numero) {
+    return total + numero;
+  }, 0);
+
+  escribirSalida5(["reduce: " + suma, "numeros: " + comoTexto(numeros)]);
+  console.log("Ejercicio 5: suma " + suma);
 }
 
 function verCadena() {
