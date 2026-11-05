@@ -288,14 +288,36 @@ function mostrarNotas() {
 }
 
 function anadirNota() {
-  // TODO: si #nota está vacía, muestra un error en #error4 (quítale "d-none").
-  //       Ojo: Number("") vale 0, así que esta comprobación va antes de convertir.
-  // TODO: convierte el valor con Number() y llama a alumno.anadirNota(). Si devuelve false, muestra el error.
-  // TODO: si ha ido bien, oculta el error, vacía la casilla y llama a mostrarNotas().
+  const casilla = document.querySelector("#nota");
+  const error = document.querySelector("#error4");
+
+  // Miro si está vacía antes de convertir porque Number("") da 0 y contaría como una nota válida
+  if (casilla.value.trim() === "") {
+    error.textContent = "Escribe una nota antes de pulsar el botón.";
+    error.classList.remove("d-none");
+    console.log("Ejercicio 4: casilla vacía");
+    return;
+  }
+
+  const nota = Number(casilla.value);
+
+  if (alumno.anadirNota(nota) === false) {
+    error.textContent = "La nota tiene que ser un número entre 0 y 10.";
+    error.classList.remove("d-none");
+    console.log("Ejercicio 4: nota no válida", nota);
+    return;
+  }
+
+  error.classList.add("d-none");
+  casilla.value = "";
+  mostrarNotas();
 }
 
 function borrarNotas() {
-  // TODO: deja alumno.notas vacío y vuelve a pintar.
+  alumno.notas = [];
+  document.querySelector("#error4").classList.add("d-none");
+  console.log("Ejercicio 4: notas borradas");
+  mostrarNotas();
 }
 
 mostrarNotas();
