@@ -236,12 +236,28 @@ mostrarProductos();   // la tabla completa nada más cargar
 // Ejercicio 4: notas
 
 const alumno = {
-  nombre: "[Tu nombre]",
-  notas: []
-  // TODO: método anadirNota(nota): si la nota no es un número (Number.isNaN) o no está entre 0 y 10, devuelve false;
-  //       si es válida, la añade a this.notas con push y devuelve true.
-  // TODO: método media(): si no hay notas devuelve 0; si hay, la suma (con reduce) dividida entre el número de notas.
-  //       Recuerda la coma entre una propiedad y la siguiente.
+  nombre: "Fernando José",
+  notas: [],
+
+  // Guarda la nota solo si es un número entre 0 y 10. Devuelve true si la guarda y false si no
+  anadirNota: function (nota) {
+    if (Number.isNaN(nota) || nota < 0 || nota > 10) {
+      return false;
+    }
+    this.notas.push(nota);
+    return true;
+  },
+
+  // Suma las notas con reduce y divide entre cuántas hay. Sin notas devuelve 0 para no dividir entre 0
+  media: function () {
+    if (this.notas.length === 0) {
+      return 0;
+    }
+    const suma = this.notas.reduce(function (total, nota) {
+      return total + nota;
+    }, 0);
+    return suma / this.notas.length;
+  }
 };
 
 function mostrarNotas() {
