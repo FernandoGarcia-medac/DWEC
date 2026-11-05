@@ -327,9 +327,26 @@ mostrarNotas();
 
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+// Vacía #salida5 y escribe un <div> por cada línea que le paso
+function escribirSalida5(lineas) {
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "";
+
+  lineas.forEach(function (linea) {
+    const div = document.createElement("div");
+    div.textContent = linea;
+    salida.append(div);
+  });
+}
+
 function verDobles() {
-  // TODO: con map(), un array nuevo con el doble de cada número.
-  // TODO: escribe en #salida5 el resultado y, debajo, numeros (para que se vea que no ha cambiado).
+  // map devuelve un array nuevo con lo que devuelve la función para cada número
+  const dobles = numeros.map(function (numero) {
+    return numero * 2;
+  });
+
+  escribirSalida5(["map: " + comoTexto(dobles), "numeros: " + comoTexto(numeros)]);
+  console.log("Ejercicio 5: dobles " + comoTexto(dobles));
 }
 
 function verPares() {
