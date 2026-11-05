@@ -13,6 +13,18 @@ function comoTexto(lista) {
   return "[" + lista.join(", ") + "]";
 }
 
+// Ayuda: vacía la salida que le paso y escribe un <div> por cada línea. La uso en los ejercicios 5 y 6
+function escribirSalida(selector, lineas) {
+  const salida = document.querySelector(selector);
+  salida.textContent = "";
+
+  lineas.forEach(function (linea) {
+    const div = document.createElement("div");
+    div.textContent = linea;
+    salida.append(div);
+  });
+}
+
 
 // Ejercicio 1: ficha de estudiante
 
@@ -327,25 +339,13 @@ mostrarNotas();
 
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-// Vacía #salida5 y escribe un <div> por cada línea que le paso
-function escribirSalida5(lineas) {
-  const salida = document.querySelector("#salida5");
-  salida.textContent = "";
-
-  lineas.forEach(function (linea) {
-    const div = document.createElement("div");
-    div.textContent = linea;
-    salida.append(div);
-  });
-}
-
 function verDobles() {
   // map devuelve un array nuevo con lo que devuelve la función para cada número
   const dobles = numeros.map(function (numero) {
     return numero * 2;
   });
 
-  escribirSalida5(["map: " + comoTexto(dobles), "numeros: " + comoTexto(numeros)]);
+  escribirSalida("#salida5", ["map: " + comoTexto(dobles), "numeros: " + comoTexto(numeros)]);
   console.log("Ejercicio 5: dobles " + comoTexto(dobles));
 }
 
@@ -355,7 +355,7 @@ function verPares() {
     return numero % 2 === 0;
   });
 
-  escribirSalida5(["filter: " + comoTexto(pares), "numeros: " + comoTexto(numeros)]);
+  escribirSalida("#salida5", ["filter: " + comoTexto(pares), "numeros: " + comoTexto(numeros)]);
   console.log("Ejercicio 5: pares " + comoTexto(pares));
 }
 
@@ -365,7 +365,7 @@ function verSuma() {
     return total + numero;
   }, 0);
 
-  escribirSalida5(["reduce: " + suma, "numeros: " + comoTexto(numeros)]);
+  escribirSalida("#salida5", ["reduce: " + suma, "numeros: " + comoTexto(numeros)]);
   console.log("Ejercicio 5: suma " + suma);
 }
 
@@ -383,7 +383,7 @@ function verCadena() {
     return total + numero;
   }, 0);
 
-  escribirSalida5([
+  escribirSalida("#salida5", [
     "1. filter: " + comoTexto(pares),
     "2. map: " + comoTexto(dobles),
     "3. reduce: " + suma,
@@ -414,12 +414,32 @@ function mostrarCiudades() {
 }
 
 function verSlice() {
-  // TODO: guarda ciudades.slice(2, 5) y escribe en #salida6 qué devuelve y cuántas ciudades siguen en el array.
+  // slice devuelve un array nuevo con las posiciones 2, 3 y 4 (el 5 no entra) y no toca ciudades
+  const trozo = ciudades.slice(2, 5);
+
+  escribirSalida("#salida6", [
+    "slice(2, 5) devuelve " + comoTexto(trozo),
+    "ciudades sigue con " + ciudades.length + " elementos: no ha cambiado"
+  ]);
+  console.log("Ejercicio 6: slice devuelve " + comoTexto(trozo));
 }
 
 function hacerSplice() {
-  // TODO: si quedan menos de 3 ciudades, avisa en #salida6 de que hay que restaurar y no hagas nada más.
-  // TODO: si no, ciudades.splice(2, 2): escribe en #salida6 qué devuelve y cuántas quedan, y vuelve a pintar.
+  if (ciudades.length < 3) {
+    escribirSalida("#salida6", ["Quedan menos de 3 ciudades: hay que pulsar Restaurar."]);
+    console.log("Ejercicio 6: quedan menos de 3 ciudades, splice no hace nada");
+    return;
+  }
+
+  // splice quita 2 elementos desde la posición 2 del propio array y devuelve los que ha quitado
+  const quitadas = ciudades.splice(2, 2);
+
+  escribirSalida("#salida6", [
+    "splice(2, 2) devuelve " + comoTexto(quitadas),
+    "ciudades ahora tiene " + ciudades.length + " elementos: sí ha cambiado"
+  ]);
+  mostrarCiudades();
+  console.log("Ejercicio 6: splice ha quitado " + comoTexto(quitadas));
 }
 
 function restaurarCiudades() {
