@@ -190,14 +190,44 @@ function ordenarPorPrecio() {
 }
 
 function filtrarCaros() {
-  // TODO: con filter(), los productos de más de 50 €. Píntalos y escribe en #mensaje3 cuántos son.
+  // filter devuelve un array nuevo solo con los productos que cumplen la condición
+  const caros = productos.filter(function (producto) {
+    return producto.precio > 50;
+  });
+
+  pintarProductos(caros);
+  document.querySelector("#mensaje3").textContent = "Hay " + caros.length + " productos de más de 50 €.";
+  console.log("Ejercicio 3: productos de más de 50 €:", caros.length);
 }
 
 function buscarProducto() {
-  // TODO: lee #buscarProducto (value, trim y toLowerCase). Si está vacío, avisa en #mensaje3.
-  // TODO: con find(), el primer producto cuyo nombre en minúsculas contenga ese texto (includes).
-  // TODO: find devuelve undefined si no encuentra nada: en ese caso, dilo en #mensaje3 y vacía la tabla.
-  //       Si lo encuentra, píntalo solo a él: pintarProductos([encontrado]).
+  const mensaje = document.querySelector("#mensaje3");
+
+  // Paso lo escrito a minúsculas para que dé igual cómo lo escriba el usuario
+  const texto = document.querySelector("#buscarProducto").value.trim().toLowerCase();
+
+  if (texto === "") {
+    mensaje.textContent = "Escribe algo antes de buscar.";
+    console.log("Ejercicio 3: búsqueda vacía");
+    return;
+  }
+
+  // find devuelve el primer producto que cumple la condición
+  const encontrado = productos.find(function (producto) {
+    return producto.nombre.toLowerCase().includes(texto);
+  });
+
+  // Si ninguno la cumple, find devuelve undefined
+  if (encontrado === undefined) {
+    pintarProductos([]);   // con una lista vacía la tabla se queda sin filas
+    mensaje.textContent = "No hay ningún producto con \"" + texto + "\".";
+    console.log("Ejercicio 3: find ha devuelto", encontrado);
+    return;
+  }
+
+  pintarProductos([encontrado]);
+  mensaje.textContent = "Encontrado: " + encontrado.nombre + ".";
+  console.log("Ejercicio 3: find ha encontrado " + encontrado.nombre);
 }
 
 mostrarProductos();   // la tabla completa nada más cargar
