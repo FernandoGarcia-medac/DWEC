@@ -370,8 +370,26 @@ function verSuma() {
 }
 
 function verCadena() {
-  // TODO: los tres seguidos: los pares, después sus dobles y al final la suma de esos dobles.
-  //       Escribe en #salida5 una línea por paso.
+  // Cada paso trabaja con el resultado del anterior
+  const pares = numeros.filter(function (numero) {
+    return numero % 2 === 0;
+  });
+
+  const dobles = pares.map(function (numero) {
+    return numero * 2;
+  });
+
+  const suma = dobles.reduce(function (total, numero) {
+    return total + numero;
+  }, 0);
+
+  escribirSalida5([
+    "1. filter: " + comoTexto(pares),
+    "2. map: " + comoTexto(dobles),
+    "3. reduce: " + suma,
+    "numeros: " + comoTexto(numeros)
+  ]);
+  console.log("Ejercicio 5: los tres seguidos dan " + suma);
 }
 
 
