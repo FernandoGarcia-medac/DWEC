@@ -200,7 +200,15 @@ function bucleFor() {
       console.log('for: repetición ' + i + ' de ' + veces);
       contador++;
     }
- 
+    
+    let i = 1;
+    while (i <= veces) {
+      anadirLinea('for: repetición ' + i + ' de ' + veces);
+      console.log('for: repetición ' + i + ' de ' + veces);
+      contador++;
+      i++;
+    }
+
     const palabra = contador === 1 ? "repetición" : "repeticiones";
     anadirLinea('Total: ' + contador + ' ' + palabra);
     console.log('for: total ' + contador + ' ' + palabra);
