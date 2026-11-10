@@ -166,3 +166,30 @@ function verAbsolutos() {
   console.log("Ejercicio 3: valores absolutos →", resultado);
 }
 
+// ============================================================
+// Ejercicio 4 · Dos contadores con closure
+// ============================================================
+
+function crearContador(paso = 1) {
+  let cuenta = 0;
+  return function () {
+    cuenta += paso;
+    return cuenta;
+  };
+}
+
+const contarDeUno = crearContador();
+const contarDeCinco = crearContador(5);
+
+function sumarUno() {
+  const valor = contarDeUno();
+  document.querySelector("#cuenta1").textContent = valor;
+  console.log("Ejercicio 4: de 1 en 1 →", valor);
+}
+
+function sumarCinco() {
+  const valor = contarDeCinco();
+  document.querySelector("#cuenta5").textContent = valor;
+  console.log("Ejercicio 4: de 5 en 5 →", valor);
+}
+
