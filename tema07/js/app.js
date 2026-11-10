@@ -299,6 +299,7 @@ function crearAlumno() {
   if (nombre === "") {
     error.textContent = "Escribe el nombre del alumno.";
     error.classList.remove("d-none");
+    console.warn("Ejercicio 5: falta el nombre del alumno.");
     return;
   }
 
@@ -308,6 +309,7 @@ function crearAlumno() {
   if (hayNotaVacia || notas.some((nota) => Number.isNaN(nota) || nota < 0 || nota > 10)) {
     error.textContent = "Las notas deben ser números entre 0 y 10.";
     error.classList.remove("d-none");
+    console.warn("Ejercicio 5: las notas introducidas no son válidas.");
     return;
   }
 
@@ -321,6 +323,7 @@ function crearAlumno() {
   document.querySelector("#empresa5").value = "";
   document.querySelector("#notas5").value = "";
   pintarAlumnos();
+  console.log("Ejercicio 5: alumno creado →", alumno.presentarse(), "· media:", alumno.media().toFixed(2));
 }
 
 // ============================================================
@@ -340,6 +343,7 @@ function mostrarDias() {
 
   if (valor === "") {
     salida.textContent = "Elige una fecha.";
+    console.warn("Ejercicio 6: no se ha elegido una fecha.");
     return;
   }
 
@@ -360,6 +364,7 @@ function mostrarDias() {
   } else {
     salida.textContent = `Fue hace ${Math.abs(dias)} días: ${fechaTexto}.`;
   }
+  console.log("Ejercicio 6: días hasta la fecha →", dias, "·", fechaTexto);
 }
 
 
@@ -382,9 +387,11 @@ function mostrarIniciales() {
 
   if (nombre === "") {
     salida.textContent = "Escribe un nombre completo.";
+    console.warn("Ejercicio 6: falta el nombre completo.");
     return;
   }
 
   salida.textContent = `Iniciales: ${iniciales(nombre)} · usuario: ${crearUsuario(nombre)}`;
+  console.log("Ejercicio 6: iniciales y usuario →", salida.textContent);
 }
 
