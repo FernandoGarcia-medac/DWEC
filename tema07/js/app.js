@@ -376,3 +376,10 @@ function iniciales(nombreCompleto) {
     .join("");
 }
 
+// Continuación del ejercicio 6 · Crear usuario
+
+function crearUsuario(nombreCompleto) {
+  const codigo = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
+  return iniciales(nombreCompleto).toLocaleLowerCase("es-ES") + codigo;
+}
+
