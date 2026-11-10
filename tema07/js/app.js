@@ -325,3 +325,14 @@ function crearAlumno() {
   pintarAlumnos();
 }
 
+// ============================================================
+// Ejercicio 6 · Fechas y textos
+// ============================================================
+
+function diasHasta(fecha) {
+  const hoy = new Date();
+  hoy.setHours(0, 0, 0, 0);
+  const diferencia = fecha.getTime() - hoy.getTime();
+  return Math.round(diferencia / (1000 * 60 * 60 * 24));
+}
+
