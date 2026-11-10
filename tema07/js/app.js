@@ -336,3 +336,33 @@ function diasHasta(fecha) {
   return Math.round(diferencia / (1000 * 60 * 60 * 24));
 }
 
+// Continuación del ejercicio 6 · Mostrar la fecha
+
+function mostrarDias() {
+  const valor = document.querySelector("#fecha6").value;
+  const salida = document.querySelector("#salida6a");
+
+  if (valor === "") {
+    salida.textContent = "Elige una fecha.";
+    return;
+  }
+
+  const [anio, mes, dia] = valor.split("-").map(Number);
+  const fecha = new Date(anio, mes - 1, dia);
+  const dias = diasHasta(fecha);
+  const fechaTexto = fecha.toLocaleDateString("es-ES", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
+
+  if (dias > 0) {
+    salida.textContent = `Faltan ${dias} días: será ${fechaTexto}.`;
+  } else if (dias === 0) {
+    salida.textContent = `Es hoy: ${fechaTexto}.`;
+  } else {
+    salida.textContent = `Fue hace ${Math.abs(dias)} días: ${fechaTexto}.`;
+  }
+}
+
