@@ -12,6 +12,10 @@ function pintarLista(selector, textos) {
   });
 }
 
+// ============================================================
+// Ejercicio 1 · Precio final
+// ============================================================
+
 function calcularPrecio(base, iva = 21, descuento = 0) {
   const precioDescontado = base - base * (descuento / 100);
   return precioDescontado + precioDescontado * (iva / 100);
@@ -57,4 +61,59 @@ function mostrarPrecio() {
   ]);
 }
 
+// ============================================================
+// Ejercicio 2 · Películas: de function a flecha
+// ============================================================
+
+const peliculas = [
+  { titulo: "El laberinto del fauno", anio: 2006, duracion: 118 },
+  { titulo: "Coco", anio: 2017, duracion: 105 },
+  { titulo: "Interstellar", anio: 2014, duracion: 169 },
+  { titulo: "Regreso al futuro", anio: 1985, duracion: 116 },
+  { titulo: "Parásitos", anio: 2019, duracion: 132 },
+  { titulo: "Toy Story", anio: 1995, duracion: 81 }
+];
+
+function comoTexto(pelicula) {
+  return `${pelicula.titulo} (${pelicula.anio}) · ${pelicula.duracion} min`;
+}
+
+function verTitulos() {
+  const titulos = peliculas.map((pelicula) => pelicula.titulo);
+  pintarLista("#salida2", titulos);
+  document.querySelector("#mensaje2").textContent = `${titulos.length} títulos.`;
+  console.log("Ejercicio 2: map →", titulos);
+}
+
+function verLargas() {
+  const largas = peliculas.filter((pelicula) => pelicula.duracion > 120);
+  pintarLista("#salida2", largas.map(comoTexto));
+  document.querySelector("#mensaje2").textContent = `${largas.length} películas duran más de 2 horas.`;
+  console.log("Ejercicio 2: filter →", largas);
+}
+
+function ordenarPorAnio() {
+  const ordenadas = [...peliculas].sort((a, b) => a.anio - b.anio);
+  pintarLista("#salida2", ordenadas.map(comoTexto));
+  document.querySelector("#mensaje2").textContent = "De la más antigua a la más reciente.";
+  console.log("Ejercicio 2: sort →", ordenadas);
+}
+
+function verDuracionTotal() {
+  const minutos = peliculas.reduce((total, pelicula) => total + pelicula.duracion, 0);
+  pintarLista("#salida2", [`${minutos} minutos de películas`]);
+  document.querySelector("#mensaje2").textContent = "La suma de las seis duraciones.";
+  console.log("Ejercicio 2: reduce →", minutos);
+}
+
+function buscarAntigua() {
+  const antigua = peliculas.find((pelicula) => pelicula.anio < 1990);
+  if (antigua === undefined) {
+    document.querySelector("#mensaje2").textContent = "No hay películas anteriores a 1990.";
+    pintarLista("#salida2", []);
+    return;
+  }
+  pintarLista("#salida2", [comoTexto(antigua)]);
+  document.querySelector("#mensaje2").textContent = "La primera película anterior a 1990.";
+}
 
