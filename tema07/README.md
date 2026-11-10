@@ -1,59 +1,52 @@
-# Tarea 7 · Funciones, flechas y clases
+# Tarea 7: funciones, flechas y clases
 
-**Autor:** [Tu nombre y apellidos] · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
+Fernando José García Fernández · 2.º DAW · DWEC · Curso 2026-27
 
-> **Plantilla de la tarea 7.** Cómo usarla:
->
-> 1. Copia esta carpeta en tu repositorio de DWEC y cámbiale el nombre a `tema07`.
-> 2. `index.html` ya está maquetado: una card por ejercicio (el 6 tiene dos). No cambies los `id` ni el `onclick` de los botones.
-> 3. `js/app.js` trae una función por botón con `TODO`. Ya están hechas `pintarLista()`, `formatearEuros()`, `pintarAlumnos()` y un modelo en los ejercicios 3, 4 y 6.
-> 4. Flechas en todos los callbacks y nunca una flecha como método. Las funciones de los botones, con `function`.
-> 5. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
-> 6. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
-
-[Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live** y probar los botones con la consola abierta (F12).]
+En esta carpeta está la página de la tarea. Se puede abrir `index.html` en el navegador o usar Go Live desde VS Code. Los botones permiten probar los ejercicios y ver los mensajes de la consola con F12.
 
 ## Capturas
 
-### a) La página recién cargada
+### a) Página recién cargada
 
-<img src="capturas/a-pagina.png" alt="La página recién cargada con mi nombre en la navbar" width="600">
+![La página recién cargada](capturas/a-pagina.png)
 
-[Qué se ve nada más cargar: tu nombre y los dos alumnos de partida.]
+Al abrir la página aparecen mi nombre en la barra superior y los dos alumnos iniciales.
 
-### b) Ejercicios 1 y 2: el precio y las películas
+### b) Ejercicios 1 y 2: precio y películas
 
-<img src="capturas/b-ej1-ej2.png" alt="El desglose del precio y una lista de películas" width="600">
+![El cálculo del precio y la lista de películas](capturas/b-ej1-ej2.png)
 
-[Un precio con descuento y uno de los botones de las películas. Qué hace calcularPrecio() y qué hace mostrarPrecio().]
+`calcularPrecio()` devuelve el precio con descuento e IVA. `mostrarPrecio()` lee los campos, comprueba los datos y muestra el desglose. En las películas uso `map`, `filter`, `sort`, `reduce` y `find` para obtener distintos resultados.
 
-### c) Ejercicios 3 y 4: tu callback y los contadores
+### c) Ejercicios 3 y 4: callback y contadores
 
 ![El resultado de transformar y los dos contadores](capturas/c-ej3-ej4.png)
 
-[Qué hace transformar() por dentro y por qué cada contador lleva su propia cuenta.]
+`transformar()` recorre la lista, aplica la operación recibida y devuelve otra lista con los resultados. Cada contador conserva su propia variable `cuenta`, por eso avanzar uno no cambia el otro.
 
-### d) Ejercicio 5: los alumnos
+### d) Ejercicio 5: alumnos
 
 ![Las tarjetas de los alumnos](capturas/d-ej5-clases.png)
 
-[Al menos cuatro alumnos, alguno en prácticas. Cómo decide tu código si crea un Alumno o un AlumnoFCT.]
+El programa empieza con dos alumnos. Se pueden añadir más desde el formulario. Si se escribe una empresa, crea un `AlumnoFCT`; si se deja vacía, crea un `Alumno`.
 
 ### e) Ejercicio 6: fechas y textos
 
 ![Los días que faltan para una fecha y unas iniciales](capturas/e-ej6-fechas-textos.png)
 
-[Qué fecha has probado, cuántos días salen y por qué redondeas.]
+`diasHasta()` compara las fechas desde la medianoche y redondea el resultado, porque el cambio de hora puede dejar una diferencia que no sea un número entero de días. Para probarlo se puede elegir, por ejemplo, el 25 de diciembre de 2026.
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿qué cambia al pasar un callback de function a flecha? ¿Cuándo hace falta el return? ¿Por qué un método no se escribe con flecha? Pon un ejemplo de tu propio código.]
+Al pasar un callback de `function` a flecha, una expresión de una sola línea puede devolver su resultado directamente. En `transformar()` uso `return` al final porque quiero devolver el array que he creado. Los métodos de clase los escribo como `media() { ... }`; no los hago flecha porque necesitan usar `this`. En el ejercicio 5, `media()` usa `reduce` con una flecha para sumar las notas. `AlumnoFCT` reutiliza la presentación del alumno con `super.presentarse()` y añade la empresa de prácticas.
 
 ## Fuentes
 
-- [Título de la página](https://enlace-a-la-fuente)
+- [Funciones flecha en JavaScript, MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [Clases en JavaScript, MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)
+- [Array.prototype.find(), MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+- [Date.prototype.toLocaleDateString(), MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString)
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
-
+He usado ChatGPT para resolver dudas y revisar partes de la actividad. Después he comprobado el código y las explicaciones con las indicaciones de la plantilla.
