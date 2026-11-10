@@ -289,8 +289,6 @@ function pintarAlumnos() {
 
 pintarAlumnos();
 
-// Continuación del ejercicio 5 · Alta de alumnos
-
 function crearAlumno() {
   const nombre = document.querySelector("#nombre5").value.trim();
   const curso = document.querySelector("#curso5").value;
@@ -336,8 +334,6 @@ function diasHasta(fecha) {
   return Math.round(diferencia / (1000 * 60 * 60 * 24));
 }
 
-// Continuación del ejercicio 6 · Mostrar la fecha
-
 function mostrarDias() {
   const valor = document.querySelector("#fecha6").value;
   const salida = document.querySelector("#salida6a");
@@ -366,7 +362,6 @@ function mostrarDias() {
   }
 }
 
-// Continuación del ejercicio 6 · Iniciales
 
 function iniciales(nombreCompleto) {
   return nombreCompleto.trim()
@@ -376,14 +371,10 @@ function iniciales(nombreCompleto) {
     .join("");
 }
 
-// Continuación del ejercicio 6 · Crear usuario
-
 function crearUsuario(nombreCompleto) {
   const codigo = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
   return iniciales(nombreCompleto).toLocaleLowerCase("es-ES") + codigo;
 }
-
-// Continuación del ejercicio 6 · Mostrar iniciales
 
 function mostrarIniciales() {
   const nombre = document.querySelector("#nombre6").value.trim();
