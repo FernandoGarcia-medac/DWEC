@@ -28,13 +28,13 @@ Al abrir la página aparecen mi nombre en la barra superior y los dos alumnos in
 
 ![Las tarjetas de los alumnos](capturas/d-ej5-clases.png)
 
-El programa empieza con dos alumnos. Se pueden añadir más desde el formulario. Si se escribe una empresa, crea un `AlumnoFCT`; si se deja vacía, crea un `Alumno`.
+En la captura aparecen cuatro alumnos. Sara Gil no está en prácticas y Mario López y Pablo Ruiz aparecen como FCT porque tienen una empresa. Si se deja la empresa vacía, el programa crea un `Alumno` normal.
 
 ### e) Ejercicio 6: fechas y textos
 
 ![Los días que faltan para una fecha y unas iniciales](capturas/e-ej6-fechas-textos.png)
 
-`diasHasta()` compara las fechas desde la medianoche y redondea el resultado, porque el cambio de hora puede dejar una diferencia que no sea un número entero de días. Para probarlo se puede elegir, por ejemplo, el 25 de diciembre de 2026.
+He probado el 25 de diciembre de 2026 y salen 45 días. `diasHasta()` compara las fechas desde la medianoche y redondea el resultado, porque el cambio de hora puede dejar una diferencia que no sea un número entero de días.
 
 ## Reflexión
 
