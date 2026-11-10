@@ -366,3 +366,13 @@ function mostrarDias() {
   }
 }
 
+// Continuación del ejercicio 6 · Iniciales
+
+function iniciales(nombreCompleto) {
+  return nombreCompleto.trim()
+    .split(" ")
+    .filter((palabra) => palabra !== "")
+    .map((palabra) => palabra[0].toLocaleUpperCase("es-ES"))
+    .join("");
+}
+
