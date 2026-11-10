@@ -383,3 +383,17 @@ function crearUsuario(nombreCompleto) {
   return iniciales(nombreCompleto).toLocaleLowerCase("es-ES") + codigo;
 }
 
+// Continuación del ejercicio 6 · Mostrar iniciales
+
+function mostrarIniciales() {
+  const nombre = document.querySelector("#nombre6").value.trim();
+  const salida = document.querySelector("#salida6b");
+
+  if (nombre === "") {
+    salida.textContent = "Escribe un nombre completo.";
+    return;
+  }
+
+  salida.textContent = `Iniciales: ${iniciales(nombre)} · usuario: ${crearUsuario(nombre)}`;
+}
+
