@@ -193,3 +193,99 @@ function sumarCinco() {
   console.log("Ejercicio 4: de 5 en 5 →", valor);
 }
 
+// ============================================================
+// Ejercicio 5 · Clases
+// ============================================================
+
+class Alumno {
+  constructor(nombre, curso) {
+    this.nombre = nombre;
+    this.curso = curso;
+    this.notas = [];
+  }
+
+  anadirNota(nota) {
+    if (typeof nota !== "number" || Number.isNaN(nota) || nota < 0 || nota > 10) {
+      return false;
+    }
+    this.notas.push(nota);
+    return true;
+  }
+
+  media() {
+    if (this.notas.length === 0) {
+      return 0;
+    }
+    const suma = this.notas.reduce((total, nota) => total + nota, 0);
+    return suma / this.notas.length;
+  }
+
+  presentarse() {
+    return `${this.nombre}, de ${this.curso}`;
+  }
+}
+
+class AlumnoFCT extends Alumno {
+  constructor(nombre, curso, empresa) {
+    super(nombre, curso);
+    this.empresa = empresa;
+  }
+
+  presentarse() {
+    return `${super.presentarse()}, en prácticas en ${this.empresa}`;
+  }
+}
+
+const alumnos = [];
+const alumnoInicial = new Alumno("Lucía Martín", "2.º DAW");
+alumnoInicial.anadirNota(7);
+alumnoInicial.anadirNota(8.5);
+alumnos.push(alumnoInicial);
+
+const alumnoFCTInicial = new AlumnoFCT("Mario López", "2.º DAW", "TecnoSur");
+alumnoFCTInicial.anadirNota(6.5);
+alumnoFCTInicial.anadirNota(9);
+alumnos.push(alumnoFCTInicial);
+
+function pintarAlumnos() {
+  const contenedor = document.querySelector("#listaAlumnos");
+  contenedor.textContent = "";
+
+  alumnos.forEach((alumno) => {
+    const columna = document.createElement("div");
+    columna.classList.add("col-12", "col-md-6", "col-xl-4");
+
+    const tarjeta = document.createElement("div");
+    tarjeta.classList.add("border", "rounded", "p-2", "h-100");
+
+    const frase = document.createElement("p");
+    frase.classList.add("mb-1");
+    frase.textContent = alumno.presentarse();
+
+    const media = document.createElement("span");
+    media.classList.add("badge", "me-1");
+    if (alumno.notas.length === 0) {
+      media.classList.add("text-bg-secondary");
+      media.textContent = "Sin notas";
+    } else {
+      media.classList.add(alumno.media() >= 5 ? "text-bg-success" : "text-bg-danger");
+      media.textContent = `Media ${alumno.media().toFixed(2)}`;
+    }
+
+    tarjeta.append(frase, media);
+    if (alumno instanceof AlumnoFCT) {
+      const fct = document.createElement("span");
+      fct.classList.add("badge", "text-bg-info");
+      fct.textContent = "FCT";
+      tarjeta.append(fct);
+    }
+
+    columna.append(tarjeta);
+    contenedor.append(columna);
+  });
+
+  document.querySelector("#totalAlumnos").textContent = alumnos.length;
+}
+
+pintarAlumnos();
+
