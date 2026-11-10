@@ -117,3 +117,52 @@ function buscarAntigua() {
   document.querySelector("#mensaje2").textContent = "La primera película anterior a 1990.";
 }
 
+// ============================================================
+// Ejercicio 3 · Tu propio callback
+// ============================================================
+
+const numeros = [3, -1, 4, -1, 5, 9];
+document.querySelector("#numeros3").textContent = `const numeros = [${numeros.join(", ")}];`;
+
+function transformar(lista, operacion) {
+  const resultado = [];
+  for (const elemento of lista) {
+    resultado.push(operacion(elemento));
+  }
+  return resultado;
+}
+
+function mostrar3(nombre, resultado, conMap) {
+  const salida = document.querySelector("#salida3");
+  salida.textContent = "";
+  const lineas = [
+    `${nombre} → [${resultado.join(", ")}]`,
+    `con map → [${conMap.join(", ")}]`,
+    `numeros → [${numeros.join(", ")}] (no cambia)`
+  ];
+  lineas.forEach((linea) => {
+    const parrafo = document.createElement("p");
+    parrafo.classList.add("mb-1");
+    parrafo.textContent = linea;
+    salida.append(parrafo);
+  });
+}
+
+function verDobles() {
+  const resultado = transformar(numeros, (n) => n * 2);
+  mostrar3("dobles", resultado, numeros.map((n) => n * 2));
+  console.log("Ejercicio 3: dobles →", resultado);
+}
+
+function verCuadrados() {
+  const resultado = transformar(numeros, (n) => n ** 2);
+  mostrar3("cuadrados", resultado, numeros.map((n) => n ** 2));
+  console.log("Ejercicio 3: cuadrados →", resultado);
+}
+
+function verAbsolutos() {
+  const resultado = transformar(numeros, Math.abs);
+  mostrar3("valores absolutos", resultado, numeros.map(Math.abs));
+  console.log("Ejercicio 3: valores absolutos →", resultado);
+}
+
