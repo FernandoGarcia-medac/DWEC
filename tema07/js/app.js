@@ -289,3 +289,39 @@ function pintarAlumnos() {
 
 pintarAlumnos();
 
+// Continuación del ejercicio 5 · Alta de alumnos
+
+function crearAlumno() {
+  const nombre = document.querySelector("#nombre5").value.trim();
+  const curso = document.querySelector("#curso5").value;
+  const empresa = document.querySelector("#empresa5").value.trim();
+  const notasTexto = document.querySelector("#notas5").value.trim();
+  const error = document.querySelector("#error5");
+
+  if (nombre === "") {
+    error.textContent = "Escribe el nombre del alumno.";
+    error.classList.remove("d-none");
+    return;
+  }
+
+  const notasSeparadas = notasTexto === "" ? [] : notasTexto.split(",");
+  const hayNotaVacia = notasSeparadas.some((texto) => texto.trim() === "");
+  const notas = notasSeparadas.map((texto) => Number(texto.trim()));
+  if (hayNotaVacia || notas.some((nota) => Number.isNaN(nota) || nota < 0 || nota > 10)) {
+    error.textContent = "Las notas deben ser números entre 0 y 10.";
+    error.classList.remove("d-none");
+    return;
+  }
+
+  const alumno = empresa === ""
+    ? new Alumno(nombre, curso)
+    : new AlumnoFCT(nombre, curso, empresa);
+  notas.forEach((nota) => alumno.anadirNota(nota));
+  alumnos.push(alumno);
+  error.classList.add("d-none");
+  document.querySelector("#nombre5").value = "";
+  document.querySelector("#empresa5").value = "";
+  document.querySelector("#notas5").value = "";
+  pintarAlumnos();
+}
+
