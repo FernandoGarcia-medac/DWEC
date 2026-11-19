@@ -91,9 +91,37 @@
 
               </fieldset>
 
-              <!-- TODO: un segundo <fieldset> «Tu inscripción» con la modalidad (select), el taller (tres radio
-                         con el mismo name), el nivel de JavaScript (range con su <output>), los comentarios
-                         (textarea con su contador) y la casilla de las condiciones. -->
+              <!-- Ejercicios 1 y 2: este grupo reúne modalidad, taller, nivel, comentarios y condiciones. -->
+              <fieldset class="mb-4">
+                <legend class="fs-5 border-bottom pb-1">Tu inscripción</legend>
+
+                <div class="mb-3">
+                  <label for="modalidad" class="form-label">Modalidad *</label>
+                  <select id="modalidad" name="modalidad" class="form-select" required>
+                    <option value="" selected disabled>Elige una modalidad</option>
+                    <option value="presencial">Presencial</option>
+                    <option value="online">En línea</option>
+                  </select>
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="mb-3">
+                  <p class="form-label mb-2">Taller *</p>
+                  <div class="form-check">
+                    <input type="radio" id="tallerHtml" name="taller" value="html" class="form-check-input" required>
+                    <label for="tallerHtml" class="form-check-label">HTML y CSS</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" id="tallerJavaScript" name="taller" value="javascript" class="form-check-input" required>
+                    <label for="tallerJavaScript" class="form-check-label">JavaScript</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" id="tallerAccesibilidad" name="taller" value="accesibilidad" class="form-check-input" required>
+                    <label for="tallerAccesibilidad" class="form-check-label">Accesibilidad web</label>
+                  </div>
+                  <div class="invalid-feedback"></div>
+                </div>
+              </fieldset>
 
               <!-- TODO: los botones «Enviar inscripción» (submit) y «Borrar» (reset). -->
 
