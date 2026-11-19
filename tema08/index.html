@@ -64,8 +64,30 @@
                   <div class="invalid-feedback"></div>
                 </div>
 
-                <!-- TODO: correo (email), «Repite el correo» (email2, SIN name), teléfono (telefono)
-                           y fecha de nacimiento (nacimiento). Dos por fila con la rejilla de Bootstrap. -->
+                <!-- Ejercicios 1 y 2: correo, repetición sin name, teléfono y nacimiento en dos columnas. -->
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" class="form-control" autocomplete="email" required>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="email2" class="form-label">Repite el correo *</label>
+                    <!-- No lleva name porque solo lo usamos para comprobar que los correos coinciden. -->
+                    <input type="email" id="email2" class="form-control" autocomplete="email" required>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="telefono" class="form-label">Teléfono *</label>
+                    <input type="tel" id="telefono" name="telefono" class="form-control" autocomplete="tel" required>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="nacimiento" class="form-label">Fecha de nacimiento *</label>
+                    <input type="date" id="nacimiento" name="nacimiento" class="form-control" required>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                </div>
 
               </fieldset>
 
