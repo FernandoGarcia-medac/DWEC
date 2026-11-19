@@ -44,8 +44,10 @@ function quitarError(campo) {
   }
 
   const aviso = campo.closest(".mb-3").querySelector(".invalid-feedback");
-  aviso.textContent = "";
-  aviso.classList.remove("d-block");
+  if (aviso !== null) {
+    aviso.textContent = "";
+    aviso.classList.remove("d-block");
+  }
 }
 
 
@@ -180,6 +182,12 @@ camposFormulario.forEach((campo) => {
 });
 
 // TODO: con el evento "reset" del formulario, quita los errores y vuelve a poner el contador a 0 y el nivel a 5.
+form.addEventListener("reset", () => {
+  email2.setCustomValidity("");
+  camposFormulario.forEach((campo) => quitarError(campo));
+  contador.textContent = "0";
+  valorNivel.textContent = "5";
+});
 
 
 // ============================================================
