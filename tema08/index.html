@@ -121,6 +121,17 @@
                   </div>
                   <div class="invalid-feedback"></div>
                 </div>
+
+                <div class="mb-3">
+                  <label for="nivel" class="form-label">Nivel de JavaScript: <output id="valorNivel">5</output></label>
+                  <input type="range" id="nivel" name="nivel" class="form-range" min="1" max="10" value="5">
+                </div>
+
+                <div class="mb-3">
+                  <label for="comentarios" class="form-label">Comentarios (máximo 300 caracteres)</label>
+                  <textarea id="comentarios" name="comentarios" class="form-control" rows="3" maxlength="300"></textarea>
+                  <div class="form-text"><span id="contador">0</span>/300 caracteres</div>
+                </div>
               </fieldset>
 
               <!-- TODO: los botones «Enviar inscripción» (submit) y «Borrar» (reset). -->
