@@ -14,7 +14,27 @@ console.log("Ha llegado:", location.search);
 const parametros = new URLSearchParams(location.search);
 console.log("nombre =", parametros.get("nombre"));
 
-// TODO: escribe location.search en #consulta (o «(nada)» si está vacío).
-// TODO: recorre los parámetros con for (const [campo, valor] of parametros) y añade a #datos una fila <tr>
-//       por par: un <th> con el campo y un <td> con el valor (textContent: son datos de fuera, nada de innerHTML).
-// TODO: si no ha llegado ningún dato, muestra un aviso en la página.
+// Ejercicio 3: muestro la consulta GET y cada dato que ha llegado en la tabla.
+const consulta = document.querySelector("#consulta");
+consulta.textContent = location.search || "(nada)";
+
+const cuerpoTabla = document.querySelector("#datos");
+for (const [campo, valor] of parametros) {
+  const fila = document.createElement("tr");
+  const nombreCampo = document.createElement("th");
+  nombreCampo.scope = "row";
+  nombreCampo.textContent = campo;
+
+  const valorCampo = document.createElement("td");
+  valorCampo.textContent = valor;
+
+  fila.append(nombreCampo, valorCampo);
+  cuerpoTabla.append(fila);
+}
+
+if (parametros.size === 0) {
+  const aviso = document.createElement("p");
+  aviso.className = "alert alert-info";
+  aviso.textContent = "No han llegado datos en la URL.";
+  document.querySelector(".card-body").insertBefore(aviso, document.querySelector("table"));
+}
