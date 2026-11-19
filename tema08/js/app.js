@@ -167,6 +167,17 @@ email2.addEventListener("input", comprobarCorreos);
 
 // TODO: que el error desaparezca en cuanto se corrige: a cada campo, un "input" que llame a quitarError()
 //       si campo.checkValidity() ya es true.
+const camposFormulario = form.querySelectorAll("input, select, textarea");
+camposFormulario.forEach((campo) => {
+  campo.addEventListener("input", (e) => {
+    if (e.target.checkValidity()) {
+      quitarError(e.target);
+    }
+    if (e.target === email && email2.checkValidity()) {
+      quitarError(email2);
+    }
+  });
+});
 
 // TODO: con el evento "reset" del formulario, quita los errores y vuelve a poner el contador a 0 y el nivel a 5.
 
