@@ -35,6 +35,17 @@ function quitarError(campo) {
   //       y quítale "d-block".
   //       Ojo con los radio: el error es de todo el grupo. Si campo.type es "radio", quita "is-invalid"
   //       a todos los de su grupo: form.querySelectorAll(`[name="${campo.name}"]`).
+  if (campo.type === "radio") {
+    form.querySelectorAll(`[name="${campo.name}"]`).forEach((radio) => {
+      radio.classList.remove("is-invalid");
+    });
+  } else {
+    campo.classList.remove("is-invalid");
+  }
+
+  const aviso = campo.closest(".mb-3").querySelector(".invalid-feedback");
+  aviso.textContent = "";
+  aviso.classList.remove("d-block");
 }
 
 
@@ -44,8 +55,15 @@ function quitarError(campo) {
 
 // El texto de cada campo obligatorio cuando está vacío. La clave es el name (o el id, si no tiene name)
 const OBLIGATORIOS = {
-  nombre: "Escribe tu nombre y apellidos."
+  nombre: "Escribe tu nombre y apellidos.",
   // TODO: email, email2, nacimiento, modalidad, taller y condiciones
+  email: "Escribe tu correo electrónico.",
+  email2: "Repite tu correo electrónico.",
+  telefono: "Escribe tu teléfono.",
+  nacimiento: "Indica tu fecha de nacimiento.",
+  modalidad: "Selecciona una modalidad.",
+  taller: "Elige un taller.",
+  condiciones: "Debes aceptar las condiciones para inscribirte."
 };
 
 function mensajeDe(campo) {
@@ -55,6 +73,22 @@ function mensajeDe(campo) {
   //       · tooShort → «Escribe al menos N caracteres.» (campo.minLength)
   //       · patternMismatch, rangeUnderflow o rangeOverflow → campo.title
   //       · customError → campo.validationMessage (el de setCustomValidity)
+  if (campo.validity.valueMissing) {
+    return OBLIGATORIOS[campo.name || campo.id];
+  }
+  if (campo.validity.typeMismatch) {
+    return "Escribe un correo electrónico válido.";
+  }
+  if (campo.validity.tooShort) {
+    return `Escribe al menos ${campo.minLength} caracteres.`;
+  }
+  if (campo.validity.patternMismatch || campo.validity.rangeUnderflow || campo.validity.rangeOverflow) {
+    return campo.title;
+  }
+  if (campo.validity.customError) {
+    return campo.validationMessage;
+  }
+  return "Revisa el valor de este campo.";
 }
 
 
