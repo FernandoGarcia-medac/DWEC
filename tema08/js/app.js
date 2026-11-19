@@ -105,6 +105,7 @@ form.addEventListener("submit", (e) => {
   // TODO 4: si alguno ha fallado, pon el foco en el primero (focus()) y no sigas (return).
   // TODO 5: si todo está bien, envíalo de verdad: e.target.submit().
   e.preventDefault();
+  comprobarCorreos();
   const campos = e.target.querySelectorAll("input, select, textarea");
   let primerCampoInvalido = null;
 
@@ -150,6 +151,19 @@ nivel.addEventListener("input", (e) => {
 // TODO: comprobarCorreos(): si #email2 no está vacío y no coincide con #email, ponle un error propio con
 //       setCustomValidity("Los dos correos no coinciden."); si coincide, quítaselo con setCustomValidity("").
 //       Llámala en el evento "input" de los dos correos y también al empezar la validación del submit.
+const email = document.querySelector("#email");
+const email2 = document.querySelector("#email2");
+
+function comprobarCorreos() {
+  if (email2.value !== "" && email2.value !== email.value) {
+    email2.setCustomValidity("Los dos correos no coinciden.");
+  } else {
+    email2.setCustomValidity("");
+  }
+}
+
+email.addEventListener("input", comprobarCorreos);
+email2.addEventListener("input", comprobarCorreos);
 
 // TODO: que el error desaparezca en cuanto se corrige: a cada campo, un "input" que llame a quitarError()
 //       si campo.checkValidity() ya es true.
