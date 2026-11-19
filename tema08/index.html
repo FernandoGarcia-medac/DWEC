@@ -132,9 +132,20 @@
                   <textarea id="comentarios" name="comentarios" class="form-control" rows="3" maxlength="300"></textarea>
                   <div class="form-text"><span id="contador">0</span>/300 caracteres</div>
                 </div>
+
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input type="checkbox" id="condiciones" name="condiciones" class="form-check-input" required>
+                    <label for="condiciones" class="form-check-label">Acepto las condiciones de inscripción *</label>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                </div>
               </fieldset>
 
-              <!-- TODO: los botones «Enviar inscripción» (submit) y «Borrar» (reset). -->
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Enviar inscripción</button>
+                <button type="reset" class="btn btn-outline-secondary">Borrar</button>
+              </div>
 
             </form>
           </div>
