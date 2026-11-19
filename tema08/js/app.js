@@ -199,3 +199,22 @@ form.addEventListener("reset", () => {
 //       · recórrelo con for (const [campo, valor] of datos) y pinta un <li class="list-group-item"> por par
 //         en #resumen (createElement y textContent; si el valor está vacío, «(vacío)»);
 //       · escribe en #avisoResumen cuántos datos hay y por qué falta «Repite el correo».
+const botonResumen = document.querySelector("#verResumen");
+const listaResumen = document.querySelector("#resumen");
+const avisoResumen = document.querySelector("#avisoResumen");
+
+botonResumen.addEventListener("click", () => {
+  const datos = new FormData(form);
+  let cantidadDatos = 0;
+  listaResumen.replaceChildren();
+
+  for (const [campo, valor] of datos) {
+    const elemento = document.createElement("li");
+    elemento.className = "list-group-item";
+    elemento.textContent = `${campo}: ${valor === "" ? "(vacío)" : valor}`;
+    listaResumen.append(elemento);
+    cantidadDatos += 1;
+  }
+
+  avisoResumen.textContent = `Hay ${cantidadDatos} datos. «Repite el correo» no aparece porque ese campo no tiene atributo name y FormData solo recoge campos que tienen name.`;
+});
