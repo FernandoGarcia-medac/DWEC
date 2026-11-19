@@ -104,6 +104,27 @@ form.addEventListener("submit", (e) => {
   //         si no, mostrarError(campo, mensajeDe(campo)) y apúntate el primero que falla.
   // TODO 4: si alguno ha fallado, pon el foco en el primero (focus()) y no sigas (return).
   // TODO 5: si todo está bien, envíalo de verdad: e.target.submit().
+  e.preventDefault();
+  const campos = e.target.querySelectorAll("input, select, textarea");
+  let primerCampoInvalido = null;
+
+  campos.forEach((campo) => {
+    if (campo.checkValidity()) {
+      quitarError(campo);
+    } else {
+      mostrarError(campo, mensajeDe(campo));
+      if (primerCampoInvalido === null) {
+        primerCampoInvalido = campo;
+      }
+    }
+  });
+
+  if (primerCampoInvalido !== null) {
+    primerCampoInvalido.focus();
+    return;
+  }
+
+  e.target.submit();
 });
 
 
