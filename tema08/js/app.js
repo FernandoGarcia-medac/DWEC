@@ -134,8 +134,18 @@ form.addEventListener("submit", (e) => {
 
 // TODO: el contador de la textarea: con el evento "input" de #comentarios, escribe en #contador
 //       cuántos caracteres lleva (value.length).
+const comentarios = document.querySelector("#comentarios");
+const contador = document.querySelector("#contador");
+comentarios.addEventListener("input", (e) => {
+  contador.textContent = e.target.value.length;
+});
 
 // TODO: el nivel: con el evento "input" de #nivel, escribe su valor en #valorNivel.
+const nivel = document.querySelector("#nivel");
+const valorNivel = document.querySelector("#valorNivel");
+nivel.addEventListener("input", (e) => {
+  valorNivel.textContent = e.target.value;
+});
 
 // TODO: comprobarCorreos(): si #email2 no está vacío y no coincide con #email, ponle un error propio con
 //       setCustomValidity("Los dos correos no coinciden."); si coincide, quítaselo con setCustomValidity("").
