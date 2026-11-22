@@ -28,13 +28,13 @@ En la URL se ven los nombres y valores de los campos enviados por GET, y la pág
 
 ![Los errores debajo de cada campo](capturas/d-ej4-errores.png)
 
-La captura muestra errores distintos: un campo obligatorio vacío, un correo con formato incorrecto y dos correos que no coinciden. Los mensajes salen de las propiedades de validación del campo o del mensaje personalizado que se define con `setCustomValidity()`.
+La captura muestra varios errores: el nombre es demasiado corto, el correo no tiene formato válido, los dos correos no coinciden, el teléfono no tiene nueve cifras y hay campos obligatorios vacíos. Los mensajes salen de las propiedades de validación del campo o del mensaje personalizado que se define con `setCustomValidity()`.
 
 ### e) Ejercicios 5 y 6: eventos y resumen
 
 <img src="capturas/e-ej5-ej6.png" alt="El contador, el nivel, los correos que no coinciden y el resumen" width="600">
 
-La captura debe mostrar el contador (por ejemplo, «37 de 200»), el nivel, el aviso de correos distintos y el resumen generado con `FormData`. Sustituiré la imagen por una captura actualizada antes de entregar.
+En la captura se ve el contador de comentarios, el nivel 7, el aviso de que los correos no coinciden y el resumen generado con `FormData`.
 
 ## Reflexión
 
