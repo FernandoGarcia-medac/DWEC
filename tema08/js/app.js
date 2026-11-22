@@ -2,10 +2,8 @@
   Tarea 8 · DWEC · Fernando José García Fernández
   Formulario de inscripción.
 
-  Cómo usar esta plantilla:
-  · Escribe tu código donde pone TODO y, cuando termines, borra el TODO.
-  · Los ejercicios 1 a 3 son HTML: el formulario se valida y se envía solo, sin JavaScript.
-  · Desde el ejercicio 4, la validación la haces tú: añade novalidate al <form>.
+  El formulario usa validación HTML5 y JavaScript antes de enviarse.
+  · El envío se comprueba con novalidate para mostrar los errores junto a cada campo.
   · Los errores se escriben debajo de cada campo con mostrarError(); nada de alert().
   · Como en el tema 7: flechas en los callbacks. Dentro de ellos, this NO es el formulario:
     usa e.target o la constante form.
@@ -31,10 +29,7 @@ function mostrarError(campo, mensaje) {
 }
 
 function quitarError(campo) {
-  // TODO: lo contrario de mostrarError(): quita "is-invalid" al campo, vacía su .invalid-feedback
-  //       y quítale "d-block".
-  //       Ojo con los radio: el error es de todo el grupo. Si campo.type es "radio", quita "is-invalid"
-  //       a todos los de su grupo: form.querySelectorAll(`[name="${campo.name}"]`).
+  // Limpio el estado visual del campo y, en los radio, el de todo el grupo.
   if (campo.type === "radio") {
     form.querySelectorAll(`[name="${campo.name}"]`).forEach((radio) => {
       radio.classList.remove("is-invalid");
@@ -58,7 +53,7 @@ function quitarError(campo) {
 // El texto de cada campo obligatorio cuando está vacío. La clave es el name (o el id, si no tiene name)
 const OBLIGATORIOS = {
   nombre: "Escribe tu nombre y apellidos.",
-  // TODO: email, email2, nacimiento, modalidad, taller y condiciones
+  // Mensajes personalizados para los campos obligatorios.
   email: "Escribe tu correo electrónico.",
   email2: "Repite tu correo electrónico.",
   telefono: "Escribe tu teléfono.",
@@ -69,12 +64,7 @@ const OBLIGATORIOS = {
 };
 
 function mensajeDe(campo) {
-  // TODO: mira campo.validity y devuelve el texto que toque:
-  //       · valueMissing → OBLIGATORIOS[campo.name || campo.id]
-  //       · typeMismatch → el de un correo mal escrito
-  //       · tooShort → «Escribe al menos N caracteres.» (campo.minLength)
-  //       · patternMismatch, rangeUnderflow o rangeOverflow → campo.title
-  //       · customError → campo.validationMessage (el de setCustomValidity)
+  // Elijo el mensaje según el tipo de error que indica validity.
   if (campo.validity.valueMissing) {
     return OBLIGATORIOS[campo.name || campo.id];
   }
@@ -100,12 +90,7 @@ function mensajeDe(campo) {
 // ============================================================
 
 form.addEventListener("submit", (e) => {
-  // TODO 1: e.preventDefault(), para que no se envíe todavía.
-  // TODO 2: coge todos los campos: e.target.querySelectorAll("input, select, textarea").
-  // TODO 3: recórrelos con forEach. Si campo.checkValidity() es true, quitarError(campo);
-  //         si no, mostrarError(campo, mensajeDe(campo)) y apúntate el primero que falla.
-  // TODO 4: si alguno ha fallado, pon el foco en el primero (focus()) y no sigas (return).
-  // TODO 5: si todo está bien, envíalo de verdad: e.target.submit().
+  // Compruebo los campos y solo envío el formulario si todos son válidos.
   e.preventDefault();
   comprobarCorreos();
   const campos = e.target.querySelectorAll("input, select, textarea");
@@ -135,24 +120,21 @@ form.addEventListener("submit", (e) => {
 // Ejercicio 5 · Eventos de los campos
 // ============================================================
 
-// TODO: el contador de la textarea: con el evento "input" de #comentarios, escribe en #contador
-//       cuántos caracteres lleva (value.length).
+// Actualizo el contador de comentarios mientras se escribe.
 const comentarios = document.querySelector("#comentarios");
 const contador = document.querySelector("#contador");
 comentarios.addEventListener("input", (e) => {
   contador.textContent = `${e.target.value.length} de 200`;
 });
 
-// TODO: el nivel: con el evento "input" de #nivel, escribe su valor en #valorNivel.
+// Actualizo el valor mostrado del nivel mientras se mueve el control.
 const nivel = document.querySelector("#nivel");
 const valorNivel = document.querySelector("#valorNivel");
 nivel.addEventListener("input", (e) => {
   valorNivel.textContent = e.target.value;
 });
 
-// TODO: comprobarCorreos(): si #email2 no está vacío y no coincide con #email, ponle un error propio con
-//       setCustomValidity("Los dos correos no coinciden."); si coincide, quítaselo con setCustomValidity("").
-//       Llámala en el evento "input" de los dos correos y también al empezar la validación del submit.
+// Compruebo que los dos correos coincidan y actualizo el error personalizado.
 const email = document.querySelector("#email");
 const email2 = document.querySelector("#email2");
 
@@ -167,8 +149,7 @@ function comprobarCorreos() {
 email.addEventListener("input", comprobarCorreos);
 email2.addEventListener("input", comprobarCorreos);
 
-// TODO: que el error desaparezca en cuanto se corrige: a cada campo, un "input" que llame a quitarError()
-//       si campo.checkValidity() ya es true.
+// Quito el error de cada campo en cuanto su valor vuelve a ser válido.
 const camposFormulario = form.querySelectorAll("input, select, textarea");
 camposFormulario.forEach((campo) => {
   campo.addEventListener("input", (e) => {
@@ -181,7 +162,7 @@ camposFormulario.forEach((campo) => {
   });
 });
 
-// TODO: con el evento "reset" del formulario, quita los errores y vuelve a poner el contador a 0 y el nivel a 5.
+// Al restablecer el formulario, limpio errores y recupero los valores iniciales.
 form.addEventListener("reset", () => {
   email2.setCustomValidity("");
   camposFormulario.forEach((campo) => quitarError(campo));
@@ -194,11 +175,7 @@ form.addEventListener("reset", () => {
 // Ejercicio 6 · Resumen con FormData
 // ============================================================
 
-// TODO: con el evento "click" de #verResumen:
-//       · const datos = new FormData(form);
-//       · recórrelo con for (const [campo, valor] of datos) y pinta un <li class="list-group-item"> por par
-//         en #resumen (createElement y textContent; si el valor está vacío, «(vacío)»);
-//       · escribe en #avisoResumen cuántos datos hay y por qué falta «Repite el correo».
+// Muestro los datos incluidos en FormData y explico por qué no aparece la repetición del correo.
 const botonResumen = document.querySelector("#verResumen");
 const listaResumen = document.querySelector("#resumen");
 const avisoResumen = document.querySelector("#avisoResumen");
