@@ -1,5 +1,5 @@
 /*
-  Tarea 8 · DWEC · [Tu nombre y apellidos]
+  Tarea 8 · DWEC · Fernando José García Fernández
   Formulario de inscripción.
 
   Cómo usar esta plantilla:
@@ -140,7 +140,7 @@ form.addEventListener("submit", (e) => {
 const comentarios = document.querySelector("#comentarios");
 const contador = document.querySelector("#contador");
 comentarios.addEventListener("input", (e) => {
-  contador.textContent = e.target.value.length;
+  contador.textContent = `${e.target.value.length} de 200`;
 });
 
 // TODO: el nivel: con el evento "input" de #nivel, escribe su valor en #valorNivel.
@@ -185,7 +185,7 @@ camposFormulario.forEach((campo) => {
 form.addEventListener("reset", () => {
   email2.setCustomValidity("");
   camposFormulario.forEach((campo) => quitarError(campo));
-  contador.textContent = "0";
+  contador.textContent = "0 de 200";
   valorNivel.textContent = "5";
 });
 

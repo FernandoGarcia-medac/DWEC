@@ -34,7 +34,7 @@ La captura muestra errores distintos: un campo obligatorio vacío, un correo con
 
 <img src="capturas/e-ej5-ej6.png" alt="El contador, el nivel, los correos que no coinciden y el resumen" width="600">
 
-Se ve el contador de comentarios, el nivel elegido, el aviso cuando los correos no coinciden y el resumen de datos generado con `FormData`.
+La captura debe mostrar el contador (por ejemplo, «37 de 200»), el nivel, el aviso de correos distintos y el resumen generado con `FormData`. Sustituiré la imagen por una captura actualizada antes de entregar.
 
 ## Reflexión
 

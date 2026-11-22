@@ -78,13 +78,16 @@
                     <div class="invalid-feedback"></div>
                   </div>
                   <div class="col-md-6 mb-3">
-                    <label for="telefono" class="form-label">Teléfono *</label>
-                    <input type="tel" id="telefono" name="telefono" class="form-control" autocomplete="tel" required>
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" class="form-control" autocomplete="tel"
+                           pattern="[0-9]{9}" title="Escribe un teléfono de nueve cifras.">
                     <div class="invalid-feedback"></div>
                   </div>
                   <div class="col-md-6 mb-3">
                     <label for="nacimiento" class="form-label">Fecha de nacimiento *</label>
-                    <input type="date" id="nacimiento" name="nacimiento" class="form-control" required>
+                    <input type="date" id="nacimiento" name="nacimiento" class="form-control" autocomplete="bday"
+                           required min="1940-01-01" max="2010-12-31"
+                           title="La fecha debe estar entre el 01/01/1940 y el 31/12/2010.">
                     <div class="invalid-feedback"></div>
                   </div>
                 </div>
@@ -128,14 +131,14 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="comentarios" class="form-label">Comentarios (máximo 300 caracteres)</label>
-                  <textarea id="comentarios" name="comentarios" class="form-control" rows="3" maxlength="300"></textarea>
-                  <div class="form-text"><span id="contador">0</span>/300 caracteres</div>
+                  <label for="comentarios" class="form-label">Comentarios (máximo 200 caracteres)</label>
+                  <textarea id="comentarios" name="comentarios" class="form-control" rows="3" maxlength="200"></textarea>
+                  <div class="form-text"><span id="contador">0 de 200</span> caracteres</div>
                 </div>
 
                 <div class="mb-3">
                   <div class="form-check">
-                    <input type="checkbox" id="condiciones" name="condiciones" class="form-check-input" required>
+                    <input type="checkbox" id="condiciones" name="condiciones" value="si" class="form-check-input" required>
                     <label for="condiciones" class="form-check-label">Acepto las condiciones de inscripción *</label>
                     <div class="invalid-feedback"></div>
                   </div>
